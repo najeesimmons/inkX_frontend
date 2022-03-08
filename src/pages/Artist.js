@@ -38,16 +38,15 @@ function Artist(props) {
             phone: "",
         });
     };
+console.log(props.artist)
 
     // loaded function
     const loaded = () => {
-        return props.artist.map((artist) => (
-            <div key={artist._id} className="artist">
-                <Link to={`/artist/${artist._id}`}><h1>{artist.name}</h1></Link>
-                <img src={artist.image} alt={artist.name} />
-                <h3>{artist.title}</h3>
+        return (
+            <div>
+                  <h1>First name: {props.artist[0].first_name}</h1>
             </div>
-        ));
+        )
     };
 
     const loading = () => {
