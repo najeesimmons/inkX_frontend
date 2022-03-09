@@ -24,10 +24,12 @@ const Artist = (props) => {
     const loaded = () => {
         return (
             <div>
-               {artist.map(artist => {
-                return(
-                <h2>{artist.first_name}</h2>)
-            })}
+               {artist.map((artist) => {
+
+                return (
+                <h2>{artist.first_name}</h2>
+               );
+              })}
             </div>
     );
   };
