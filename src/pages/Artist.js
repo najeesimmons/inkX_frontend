@@ -11,7 +11,7 @@ const Artist = (props) => {
     const getArtist = async () => {
         const response = await fetch(url);
         const data = await response.json();
-        // console.log(data)
+        console.log(data)
         setArtist(data);
     };
 
@@ -24,12 +24,7 @@ const Artist = (props) => {
     const loaded = () => {
         return (
             <div>
-               {artist.map((artist) => {
-
-                return (
-                <h2>{artist.first_name}</h2>
-               );
-              })}
+               {artist[0].first_name}
             </div>
     );
   };
