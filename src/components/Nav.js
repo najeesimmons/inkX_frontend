@@ -12,6 +12,9 @@ const Nav = (props) => {
             <Link to="/artist">
                 <div>ARTISTS</div>
             </Link>
+            <Link to="/piece">
+                <div>PIECES</div>
+            </Link>
         </div>
     );
 };

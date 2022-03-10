@@ -12,7 +12,7 @@ function App() {
   //state to hold the artist list data
   const [artists, setArtists] = useState([]);
   const [artistIsLoading, setArtistIsLoading] = useState(false);
-
+  
   // "database" URL
   const artistUrl = "https://inkx-backend.herokuapp.com/artist"
 
