@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 // import { useParams } from "react-router";
 import Nav from "./components/Nav";
 import Artist from './pages/Artist';
-import Show from './pages/Show';
+import ArtistShow from './pages/ArtistShow';
 import Main from "./pages/Main";
 import { useState, useEffect } from "react";
 
@@ -36,6 +36,8 @@ function App() {
       getArtists();
   }, []);
 
+  // if isLoading is truthy, display "loading..." message
+  // else state is changed and 'artists' will include API data
   if (isLoading) {
     return (
       <div>
@@ -50,7 +52,9 @@ function App() {
       <Routes>
           <Route exact path="/" element={ <Main/> } />
           <Route path="/artist" element={ <Artist artists={artists}/>} />
-          <Route path="/artist/:id" element={ <Show artists={artists}/>} />
+          <Route path="/artist/:id" element={ <ArtistShow artists={artists}/>} />
+          <Route path="/piece" />
+          <Route path="/piece/:id" />
       </Routes>
       </div>
   );

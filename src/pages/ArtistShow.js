@@ -9,7 +9,7 @@ const Show = (props) => {
     if (artist) {
         return (
             <div>
-               {artist.password}
+               {artist.first_name}
             </div>
         )
     }
