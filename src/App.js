@@ -11,19 +11,19 @@ function App() {
   // We will use the Route component to specify each route
   //state to hold the artist list data
   const [artists, setArtists] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [artistIsLoading, setArtistIsLoading] = useState(false);
 
   // "database" URL
-  const url = "https://inkx-backend.herokuapp.com/artist"
+  const artistUrl = "https://inkx-backend.herokuapp.com/artist"
 
   //function to fetch artist data
   const getArtists = async () => {
     
     try {
-      setIsLoading(true)
-      const response = await fetch(url);
+      setArtistIsLoading(true)
+      const response = await fetch(artistUrl);
       const data = await response.json();
-      setIsLoading(false)
+      setArtistIsLoading(false)
       setArtists(data);
 
     } catch (error) {
@@ -38,7 +38,7 @@ function App() {
 
   // if isLoading is truthy, display "loading..." message
   // else state is changed and 'artists' will include API data
-  if (isLoading) {
+  if (artistIsLoading) {
     return (
       <div>
         Loading...
