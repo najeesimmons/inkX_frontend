@@ -1,6 +1,6 @@
 import React from "react";
 
-const Main = (props) => {
+const Main = () => {
   return (
     <div>
       <h1>This is the Main Page</h1>
