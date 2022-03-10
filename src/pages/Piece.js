@@ -1,7 +1,7 @@
-import Nav from "../components/Nav";
+
 
 const Piece = (props) => {
-    return (
+    return (  
       <div>
         <h1>This is the Piece Index Page</h1>
       </div>
