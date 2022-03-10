@@ -2,40 +2,48 @@ import { useState, useEffect } from "react";
 
 const Artist = (props) => {
     //state to hold the artist list data
-    const [artist, setArtist] = useState("null");
+    const [artists, setArtists] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     // "database" URL
     const url = "https://inkx-backend.herokuapp.com/artist"
 
     //function to fetch artist data
-    const getArtist = async () => {
+    const getArtists = async () => {
+        setIsLoading(true)
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data)
-        setArtist(data);
+        setIsLoading(false)
+        // console.log(data)
+        setArtists(data);
     };
 
     // useEffect to run getArtist when component mounts
     useEffect(() => {
-        getArtist();
+        getArtists();
     }, []);
  
-    // loaded function for when data is fetched
-    const loaded = () => {
-        return (
-            <div>
-               {artist[0].first_name}
+    if (isLoading) {
+      return (
+        <div>
+          Loading...
+        </div>
+      )
+    }
+
+    return (
+      <div>
+        {artists.map((artist, index) => {
+          return (
+            <div key={artist._id}>
+              <h1>{artist.first_name}</h1>
+              <h2>{index}</h2>
             </div>
-    );
-  };
-
-  // Function for when data doesn't exist
-  const loading = () => {
-    return <h1>Loading...</h1>;
-  };
-
-  // if artist has data, run the loaded function, otherwise, run loading
-  return artist ? loaded() : loading();
+          )
+        })}
+      </div>
+    )
+  
 };
 
 export default Artist;
