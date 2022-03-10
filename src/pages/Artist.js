@@ -7,6 +7,7 @@ const Artist = (props) => {
         {props.artists.map((artist) => {
           return (
             <div key={artist._id}>
+              <img src={artist.profile_pic} alt={artist.username} />
               <Link to={`/artist/${artist._id}`} >
               <h1>{artist.first_name}</h1>
               </Link>
