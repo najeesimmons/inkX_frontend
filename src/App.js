@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Artist from './pages/Artist';
 import ArtistShow from './pages/ArtistShow';
 import Piece from './pages/Piece';
+import PieceShow from './pages/PieceShow';
 import Main from "./pages/Main";
 import { useState, useEffect } from "react";
 
@@ -86,7 +87,7 @@ function App() {
           <Route path="/artist" element={ <Artist artists={artists}/>} />
           <Route path="/artist/:id" element={ <ArtistShow artists={artists}/>} />
           <Route path="/piece" element={ <Piece pieces={pieces}/> } />
-          <Route path="/piece/:id" />
+          <Route path="/piece/:id" element={ <PieceShow pieces={pieces} />} />
       </Routes>
       </div>
   );
