@@ -10,8 +10,8 @@ const Piece = (props) => {
               <Link to={`/piece/${piece._id}`} >
                 <img src={piece.image} alt={piece.artist} />
               </Link>
+              <h2>{piece.title}</h2>
               <p>{piece.date}</p>
-              <p>{piece.artist}</p>
               <p>{piece.description}</p>
               <br></br>
               
