@@ -4,26 +4,35 @@ import { Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
 import Artist from './pages/Artist';
 import ArtistShow from './pages/ArtistShow';
+import Piece from './pages/Piece';
 import Main from "./pages/Main";
 import { useState, useEffect } from "react";
 
 function App() {
   // We will use the Route component to specify each route
+
   //state to hold the artist list data
   const [artists, setArtists] = useState([]);
-  const [artistIsLoading, setArtistIsLoading] = useState(false);
-  
-  // "database" URL
-  const artistUrl = "https://inkx-backend.herokuapp.com/artist"
+  const [artistsIsLoading, setArtistsIsLoading] = useState(false);
 
-  //function to fetch artist data
+  //state to hold piece list data
+  const [pieces, setPieces] = useState([]);
+  const [piecesIsLoading, setPiecesIsLoading] = useState(false);
+ 
+
+  // artists "database" URL
+  const artistsUrl = "https://inkx-backend.herokuapp.com/artist"
+  // pieces "database" URL
+  const piecesUrl = "https://inkx-backend.herokuapp.com/piece"
+
+  //function to fetch artists data
   const getArtists = async () => {
     
     try {
-      setArtistIsLoading(true)
-      const response = await fetch(artistUrl);
+      setArtistsIsLoading(true)
+      const response = await fetch(artistsUrl);
       const data = await response.json();
-      setArtistIsLoading(false)
+      setArtistsIsLoading(false)
       setArtists(data);
 
     } catch (error) {
@@ -31,14 +40,37 @@ function App() {
       }
   };
 
-  // useEffect to run getArtist when component mounts
-  useEffect(() => {
-      getArtists();
-  }, []);
+  //function to fetch pieces data
+  const getPieces = async () => {
+    
+    try {
+      setPiecesIsLoading(true)
+      const response = await fetch(piecesUrl);
+      const data = await response.json();
+      setPiecesIsLoading(false)
+      setPieces(data);
 
-  // if isLoading is truthy, display "loading..." message
-  // else state is changed and 'artists' will include API data
-  if (artistIsLoading) {
+    } catch (error) {
+      console.error(error)  
+      }
+  };
+
+  // useEffect to run getArtist when component mounts
+  useEffect(() => {getArtists();}, []);
+  // useEffect to run getPieces when component mounts
+  useEffect(() => {getPieces();}, []);
+
+  // if isLoading for any component state is truthy, display "loading..." message
+  // else state is changed and 'artists', 'pieces', etc. will include API data
+  if (artistsIsLoading) {
+    return (
+      <div>
+        Loading...
+      </div>
+    )
+  }
+
+  if (piecesIsLoading) {
     return (
       <div>
         Loading...
@@ -53,7 +85,7 @@ function App() {
           <Route exact path="/" element={ <Main/> } />
           <Route path="/artist" element={ <Artist artists={artists}/>} />
           <Route path="/artist/:id" element={ <ArtistShow artists={artists}/>} />
-          <Route path="/piece" />
+          <Route path="/piece" element={ <Piece pieces={pieces}/> } />
           <Route path="/piece/:id" />
       </Routes>
       </div>
