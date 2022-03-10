@@ -7,9 +7,9 @@ const Piece = (props) => {
         {props.pieces.map((piece) => {
           return (
             <div key={piece._id}>
-              {/* <Link to={`/piece/${piece._id}`} > */}
+              <Link to={`/piece/${piece._id}`} >
                 <img src={piece.image} alt={piece.artist} />
-              {/* </Link> */}
+              </Link>
               <p>{piece.date}</p>
               <p>{piece.artist}</p>
               <p>{piece.description}</p>
