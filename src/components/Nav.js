@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../nav.css"
+import "../nav.css";
+// import { Navbar, Nav, Container } from 'react-bootstrap';
 
-
-const Nav = () => {
+const Nav = (props) => {
     return (
         <div className="nav">
             <Link to="/">
