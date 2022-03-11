@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Form = (props) => {
+const NewArtistForm = (props) => {
 
     // state to hold formData
     const [newArtistForm, setNewArtistForm] = useState({
@@ -31,8 +31,8 @@ const Form = (props) => {
   
     return (
         <section>
-            <h1>Sign Up</h1>
-            <form onSubmit={handleSubmit}>
+            <h1>Artist Sign Up</h1>
+            <form className ="form" onSubmit={handleSubmit}>
                 <input
                     type="text"
                     value={newArtistForm.first_name}
@@ -75,4 +75,4 @@ const Form = (props) => {
     );
 }
 
-export default Form;
+export default NewArtistForm;

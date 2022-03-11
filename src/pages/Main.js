@@ -1,5 +1,5 @@
 import NewArtistForm from "../components/NewArtistForm";
-import "../form.css"
+
 
 const Main = (props) => {
   return (
