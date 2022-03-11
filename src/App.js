@@ -7,7 +7,7 @@ import ArtistShow from './pages/ArtistShow';
 import Piece from './pages/Piece';
 import PieceShow from './pages/PieceShow';
 import Main from "./pages/Main";
-import Form from './components/Form';
+// import Form from './components/Form';
 import { useState, useEffect } from "react";
 
 function App() {
