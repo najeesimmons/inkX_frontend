@@ -42,6 +42,22 @@ function App() {
       }
   };
 
+  //function to create artist 
+  const createArtist = async (artist) => {
+    // make post request to create artist
+    await fetch(artistsUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    body: JSON.stringify(artist),
+    });
+    // update list of artists
+    getArtists();
+};
+
+useEffect(() => getArtists(), []);
+
   //function to fetch pieces data
   const getPieces = async () => {
     
@@ -85,7 +101,8 @@ function App() {
       <Nav />
       <Routes>
           {/* <Route exact path="/" element={ <><Main/><Form/></>} /> */}
-          <Route exact path="/" element={ <Main />} />
+          <Route exact path="/" element={ <Main createArtist={createArtist} />} />
+          {/* <Route exact path="/" element={ <Main />} /> */}
           <Route path="/artist" element={ <Artist artists={artists}/>} />
           <Route path="/artist/:id" element={ <ArtistShow artists={artists}/>} />
           <Route path="/piece" element={ <Piece pieces={pieces}/> } />

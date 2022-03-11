@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Form = () => {
+const Form = (props) => {
 
     // state to hold formData
     const [newArtistForm, setNewArtistForm] = useState({
@@ -19,7 +19,7 @@ const Form = () => {
      // handle submit function for form
      const handleSubmit = (event) => {
         event.preventDefault();
-        props.createArtist(newArtistForm);
+        props.createArtist(newArtistForm)
         setNewArtistForm({
             first_name: "",
             last_name: "",
@@ -31,6 +31,7 @@ const Form = () => {
   
     return (
         <section>
+            <h1>Sign Up</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -69,7 +70,7 @@ const Form = () => {
                 />
                 <input type="submit" value="Create Artist" />
             </form>
-            {props.artist ? loaded() : loading()}
+            {/* {props.artist ? loaded() : loading()} */}
         </section>
     );
 }
