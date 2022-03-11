@@ -2,25 +2,76 @@ import { useState } from "react";
 
 const Form = () => {
 
-    const [name, setName] = useState("");
-    
-    const handleSubmit = (event) => {
+    // state to hold formData
+    const [newArtistForm, setNewArtistForm] = useState({
+        first_name: "",
+        last_name: "",
+        profile_pic: "",
+        city: "",
+        state: "",
+    });
+
+    // handleChange function for form
+    const handleChange = (event) => {
+        setNewArtistForm({ ...newArtistForm, [event.target.name]: event.target.value });
+    };
+
+     // handle submit function for form
+     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(`The name you entered was: ${name}`)
-      }
-    
-      return (
-        <form onSubmit={handleSubmit}>
-          <label>Enter your name:
-            <input 
-              type="text" 
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </label>
-          <input type="submit" />
-        </form>
-      )
-    }
+        props.createArtist(newArtistForm);
+        setNewArtistForm({
+            first_name: "",
+            last_name: "",
+            profile_pic: "",
+            city: "",
+            state: "",
+        });
+    };
+  
+    return (
+        <section>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={newArtistForm.first_name}
+                    name="first_name"
+                    placeholder="first_name"
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    value={newArtistForm.last_name}
+                    name="last_name"
+                    placeholder="last_name"
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    value={newArtistForm.profile_pic}
+                    name="profile_pic"
+                    placeholder="image URL"
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    value={newArtistForm.city}
+                    name="city"
+                    placeholder="city"
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    value={newArtistForm.state}
+                    name="state"
+                    placeholder="state"
+                    onChange={handleChange}
+                />
+                <input type="submit" value="Create Artist" />
+            </form>
+            {props.artist ? loaded() : loading()}
+        </section>
+    );
+}
 
 export default Form;
