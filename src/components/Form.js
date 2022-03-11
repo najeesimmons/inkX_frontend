@@ -1,7 +1,18 @@
+
+
 const Form = () => {
     return (
         <form>
-            <label>Enter your name:
+            <label>username
+                <input type="text" />
+            </label>
+            <label>password
+                <input type="text" />
+            </label>
+            <label>city
+                <input type="text" />
+            </label>
+            <label>state
                 <input type="text" />
             </label>
         </form>
