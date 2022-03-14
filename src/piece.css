@@ -1,0 +1,10 @@
+.piece-image {
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: center; */
+    float: none;
+    width:  300px;
+    height: 300px;
+    object-fit: cover;
+    
+}

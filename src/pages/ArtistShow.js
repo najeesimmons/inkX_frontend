@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+// import ArtistPieces from "./ArtistPieces"
 
 const Show = (props) => {
 
@@ -7,8 +8,6 @@ const Show = (props) => {
     const artist = props.artists.find(artist => artist._id === params.id)
 
     // const pieces = props.pieces.find(piece => piece.artist === params.id)
-
-    console.log(artist)
 
     if (artist) {
         return (
@@ -19,7 +18,7 @@ const Show = (props) => {
                 </div>
                 <br></br>
                 <div>
-                    
+                    {/* <ArtistPieces></ArtistPieces> */}
                 </div>
             </div>
         )

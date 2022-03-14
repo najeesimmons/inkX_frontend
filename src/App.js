@@ -100,7 +100,7 @@ useEffect(() => getArtists(), []);
       <Nav />
       <Routes>
           {/* <Route exact path="/" element={ <><Main/><Form/></>} /> */}
-          <Route exact path="/" element={ <Main createArtist={createArtist} />} />
+          <Route exact path="/" element={ <Main createArtist={createArtist} pieces={pieces} />} />
           {/* <Route exact path="/" element={ <Main />} /> */}
           <Route path="/artist" element={ <Artist artists={artists }/>} />
           <Route path="/artist/:id" element={ <ArtistShow artists={artists} pieces={pieces} />} />

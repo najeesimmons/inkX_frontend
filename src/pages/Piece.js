@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import  "../piece.css"
 
 const Piece = (props) => {
 
@@ -8,11 +9,10 @@ const Piece = (props) => {
           return (
             <div key={piece._id}>
               <Link to={`/piece/${piece._id}`} >
-                <img src={piece.image} alt={piece.artist} />
+                <img src ={piece.image} className="piece-image" alt={piece.artist} />
               </Link>
               <h2>{piece.title}</h2>
               <p>{piece.date}</p>
-              <p>{piece.description}</p>
               <br></br>
               
             </div>
