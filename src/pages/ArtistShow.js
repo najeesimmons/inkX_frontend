@@ -9,7 +9,14 @@ const Show = (props) => {
     if (artist) {
         return (
             <div>
-               {artist.first_name}
+                <div>
+                <h1>{artist.first_name}</ h1>
+                <img src={artist.profile_pic} alt="profile"/>
+                </div>
+                
+                <div>
+                    
+                </div>
             </div>
         )
     }
