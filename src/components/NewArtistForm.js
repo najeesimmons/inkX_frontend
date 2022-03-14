@@ -31,7 +31,7 @@ const NewArtistForm = (props) => {
   
     return (
         <section>
-            <h1>Artist Sign Up</h1>
+            <h1>Create Profile</h1>
             <form className ="form" onSubmit={handleSubmit}>
                 <input
                     type="text"
