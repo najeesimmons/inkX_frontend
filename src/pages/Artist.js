@@ -9,10 +9,11 @@ const Artist = (props) => {
           return (
             <div key={artist._id}>
               <br></br>
-              <img src={artist.profile_pic} className="artist_pic" alt={artist.username} />
               <Link to={`/artist/${artist._id}`} >
-              <h1>{artist.first_name}</h1>
+              <img src={artist.profile_pic} className="artist_pic" alt={artist.username} />
+              <h2>{artist.username}</h2>
               </Link>
+              <h3>{artist.city}, {artist.state}</h3>
             </div>
           )
         })}
