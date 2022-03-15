@@ -79,7 +79,8 @@ useEffect(() => getArtists(), []);
 
   // if isLoading for any component state is truthy, display "loading..." message
   // else state is changed and 'artists', 'pieces', etc. will include API data
-  if (artistsIsLoading) {
+  if (artistsIsLoading && piecesIsLoading) {
+  
     return (
       <div>
         Loading...
@@ -87,13 +88,13 @@ useEffect(() => getArtists(), []);
     )
   }
 
-  if (piecesIsLoading) {
-    return (
-      <div>
-        Loading...
-      </div>
-    )
-  }
+  // if (piecesIsLoading) {
+  //   return (
+  //     <div>
+  //       Loading...
+  //     </div>
+  //   )
+  // }
   
   return (
       <div className="App">
@@ -103,7 +104,7 @@ useEffect(() => getArtists(), []);
           <Route exact path="/" element={ <Main createArtist={createArtist} pieces={pieces} />} />
           {/* <Route exact path="/" element={ <Main />} /> */}
           <Route path="/artist" element={ <Artist artists={artists }/>} />
-          <Route path="/artist/:id" element={ <ArtistShow artists={artists} pieces={getPieces} url={piecesUrl}/>} />
+          <Route path="/artist/:id" element={ <ArtistShow artists={artists} pieces={pieces} />} />
           <Route path="/piece" element={ <Piece pieces={pieces}/> } />
           <Route path="/piece/:id" element={ <PieceShow pieces={pieces} />} />
       </Routes>
