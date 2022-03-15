@@ -7,6 +7,7 @@ const NewArtistForm = (props) => {
     const [newArtistForm, setNewArtistForm] = useState({
         first_name: "",
         last_name: "",
+        username:"",
         profile_pic: "",
         city: "",
         state: "",
@@ -24,6 +25,7 @@ const NewArtistForm = (props) => {
         setNewArtistForm({
             first_name: "",
             last_name: "",
+            username:"",
             profile_pic: "",
             city: "",
             state: "",
@@ -46,6 +48,13 @@ const NewArtistForm = (props) => {
                     value={newArtistForm.last_name}
                     name="last_name"
                     placeholder="Last Name"
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    value={newArtistForm.username}
+                    name="username"
+                    placeholder="Username"
                     onChange={handleChange}
                 />
                 <input
