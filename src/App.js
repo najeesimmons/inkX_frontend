@@ -103,7 +103,7 @@ useEffect(() => getArtists(), []);
           <Route exact path="/" element={ <Main createArtist={createArtist} pieces={pieces} />} />
           {/* <Route exact path="/" element={ <Main />} /> */}
           <Route path="/artist" element={ <Artist artists={artists }/>} />
-          <Route path="/artist/:id" element={ <ArtistShow artists={artists} pieces={pieces} />} />
+          <Route path="/artist/:id" element={ <ArtistShow artists={artists} pieces={getPieces} url={piecesUrl}/>} />
           <Route path="/piece" element={ <Piece pieces={pieces}/> } />
           <Route path="/piece/:id" element={ <PieceShow pieces={pieces} />} />
       </Routes>
