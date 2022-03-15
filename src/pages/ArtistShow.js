@@ -10,9 +10,9 @@ const Show = (props) => {
     if (!artist) {
         return null
     }
-    console.log(artist)
+
     const pieces = props.pieces.filter(piece => piece.artist === artist._id)
-    console.log(pieces)
+
     return(
         <div>
             <img src={artist.profile_pic} alt ={artist.username}/>
