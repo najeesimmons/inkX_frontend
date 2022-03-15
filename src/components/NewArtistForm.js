@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../form.css"
 
 const NewArtistForm = (props) => {
 
@@ -30,42 +31,42 @@ const NewArtistForm = (props) => {
     };
   
     return (
-        <section>
+        <section className="form-box">
             <h1>Create Profile</h1>
             <form className ="form" onSubmit={handleSubmit}>
                 <input
                     type="text"
                     value={newArtistForm.first_name}
                     name="first_name"
-                    placeholder="first_name"
+                    placeholder="First Name"
                     onChange={handleChange}
                 />
                 <input
                     type="text"
                     value={newArtistForm.last_name}
                     name="last_name"
-                    placeholder="last_name"
+                    placeholder="Last Name"
                     onChange={handleChange}
                 />
                 <input
                     type="text"
                     value={newArtistForm.profile_pic}
                     name="profile_pic"
-                    placeholder="image URL"
+                    placeholder="Image URL"
                     onChange={handleChange}
                 />
                 <input
                     type="text"
                     value={newArtistForm.city}
                     name="city"
-                    placeholder="city"
+                    placeholder="City"
                     onChange={handleChange}
                 />
                 <input
                     type="text"
                     value={newArtistForm.state}
                     name="state"
-                    placeholder="state"
+                    placeholder="State"
                     onChange={handleChange}
                 />
                 <input type="submit" value="Create Artist" />

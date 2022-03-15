@@ -1,3 +1,13 @@
-.main-container {
-    display: flex;
+.pieces-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.piece-image {
+    width:  150px;
+    height: 150px; 
+}
+
+.form-and-pieces-container {
+    display: inline-block;
 }

@@ -1,0 +1,9 @@
+.form {
+    display: grid;
+    
+}
+
+.form-box {
+    border-radius: 5px;
+    border-color: black;
+}

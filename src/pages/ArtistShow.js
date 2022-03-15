@@ -32,29 +32,31 @@ const Show = (props) => {
       useEffect(() => {getPieces()}, []);
 
     const artist = props.artists.find(artist => artist._id === params.id)
+    console.log(artist)
 
-    // const pieces = props.pieces.find(piece => piece.artist === params.id)
 
-    const loaded = () => {
+    const loadedPieces = () => {
         return (
-    
                 pieces.map((piece) => (
-            <div key={piece._id} className="piece">
-                <Link to={`/pieces/${piece._id}`}><h1>{piece.title}</h1></Link>
-                <img src={piece.image} alt={piece.artist} />
-                <h3>{piece.artist}</h3>
+            <div>
+                <div key ={artist._id}>
+                    <img src={artist.profile_pic} alt={artist.username} />
+                </div>
+                <div key={piece._id} className="piece">
+                    <Link to={`/pieces/${piece._id}`}><h1>{piece.title}</h1></Link>
+                    <img src={piece.image} alt={piece.artist} />
+                    <h3>{piece.artist}</h3>
+                </div>
             </div>
- ))
-        //         </div>
-        //     </div>
-        // )       
+    ))    
         )}
+
     const loading = () => {
         return (
             <h1>Loading...</h1>
         )
     }
-    return pieces ? loaded() : loading()
+    return pieces ? loadedPieces() : loading()
 };
 
 export default Show;
