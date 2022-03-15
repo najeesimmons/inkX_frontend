@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "../artist.css"
 
 const Artist = (props) => {
 
@@ -7,7 +8,8 @@ const Artist = (props) => {
         {props.artists.map((artist) => {
           return (
             <div key={artist._id}>
-              <img src={artist.profile_pic}  alt={artist.username} />
+              <br></br>
+              <img src={artist.profile_pic} className="artist_pic" alt={artist.username} />
               <Link to={`/artist/${artist._id}`} >
               <h1>{artist.first_name}</h1>
               </Link>

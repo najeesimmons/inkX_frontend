@@ -1,6 +1,4 @@
-.artist_index_image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+.artist_pic {
+    height: 350px;
+    width: 350px;
 }
