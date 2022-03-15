@@ -1,10 +1,13 @@
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
 .piece-image {
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: center; */
-    float: none;
     width:  300px;
     height: 300px;
     object-fit: cover;
+    border: none;
+    margin: none;
     
 }
