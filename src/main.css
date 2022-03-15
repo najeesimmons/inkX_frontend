@@ -1,6 +1,7 @@
 .pieces-container{
     display: grid;
     grid-template-columns: repeat(4,1fr);
+    flex: 1;
 }
 
 .piece-image {
@@ -9,5 +10,6 @@
 }
 
 .form-and-pieces-container {
-    display: inline-block;
+    display: flex;
 }
+

@@ -87,14 +87,6 @@ useEffect(() => getArtists(), []);
       </div>
     )
   }
-
-  // if (piecesIsLoading) {
-  //   return (
-  //     <div>
-  //       Loading...
-  //     </div>
-  //   )
-  // }
   
   return (
       <div className="App">

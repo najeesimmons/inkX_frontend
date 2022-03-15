@@ -11,7 +11,11 @@ const PieceShow = (props) => {
             <div>
                 <img src={piece.image} alt={piece.artist} />
                 <br></br>
-                <h1>{piece.description}</h1>
+                <h2>{piece.description}</h2>
+                <div className="button-container">
+                    <button>Update</button>
+                    <button>Delete</button>
+                </div>
             </div>
         )
     }
