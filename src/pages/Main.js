@@ -1,18 +1,17 @@
 import NewArtistForm from "../components/NewArtistForm";
 import { Link } from "react-router-dom";
 import "../main.css"
+import Slideshow from "../components/Slideshow";
 // import ArtistPieces from "..components/ArtistPieces"
 
 
 const Main = (props) => {
   return (
     <div className="main-container">
-        <div className="header-container">
         <h1>inkX</h1>
         <h2>where artist connect to customers...</h2>
         <br></br>
-        <img src="https://urbanmatter.com/wp-content/uploads/2020/05/shutterstock_646327681-scaled.jpg" className="header-image" alt="inkX logo"/>
-        </div>
+        <Slideshow/>
         <div className="form-and-pieces-container">
           <NewArtistForm className= "form" createArtist={props.createArtist} />
           <div className="pieces-container">
