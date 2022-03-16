@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import "../artistShow.css"
+import { Link } from "react-router-dom";
 
 // import ArtistPieces from "./ArtistPieces"
 
@@ -16,7 +17,12 @@ const Show = (props) => {
 
     return(
         <div>
+            <div>
             <img src={artist.profile_pic} alt ={artist.username}/>
+            </div>
+            <div>
+                {artist.bio}
+            </div>
             <h2>{artist.username}</h2>
             {pieces && <div>
                 {pieces.map(piece => {

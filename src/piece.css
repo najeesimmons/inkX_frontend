@@ -3,9 +3,9 @@
     grid-template-columns: repeat(3,1fr);
 }
 
-.piece-image {
-    width:  450px;
-    height: 450px;
+.piece {
+    width:  350px;
+    height: 350px;
     object-fit: cover;
     border: none;
     margin: none;
