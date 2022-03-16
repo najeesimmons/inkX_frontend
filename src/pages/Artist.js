@@ -11,7 +11,7 @@ const Artist = (props) => {
               <br></br>
               <Link to={`/artist/${artist._id}`} >
               <img src={artist.profile_pic} className="artist_pic" alt={artist.username} />
-              <h2>{artist.username}</h2>
+              <h3>{artist.username}</h3>
               </Link>
               <h3>{artist.city}, {artist.state}</h3>
               <hr></hr>

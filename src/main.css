@@ -2,10 +2,10 @@
     border: 1px solid black;
     border-radius: 5px;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,1fr);
     flex: 1;
     margin: 5px;
-    padding: 5px;
+    padding: 20px;
 }
 
 .piece-image {
