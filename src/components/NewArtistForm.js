@@ -79,7 +79,7 @@ const NewArtistForm = (props) => {
                     onChange={handleChange}
                 />
                 <input type="submit" value="Submit" />
-                <p>By creating an account, you agree to inkX's Conditions of Use and Privacy Notice.</p>
+                <p>By creating an account, you agree to inkX's Conditions of Use and Privacy Notice (which don't exist).</p>
                 <hr></hr>
                 <p>Already have an account? Sign-In</p>
             </form>
