@@ -14,6 +14,10 @@ const slideImages = [
       url: 'https://images.smartshanghai.com/uploads/compressed/2019/03/18/15068ba4-8661-42b0-a90b-37bac0e4cb2b.jpeg.1200.800.jpg',
       caption: 'Slide 3'
     },
+    {
+      url: 'https://northernvirginiamag.com/wp-content/uploads/2020/07/Lucas-Lenzi-tattoo-feature.jpg',
+      caption: 'Slide 3'
+    },
   ];
   
   const Slideshow = () => {

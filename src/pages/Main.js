@@ -9,7 +9,7 @@ const Main = (props) => {
   return (
     <div className="main-container">
         <h1>inkX</h1>
-        <h2>where artist connect to customers...</h2>
+        <h2 className="site-title">where artist connect to customers...</h2>
         <br></br>
         <Slideshow/>
         <div className="form-and-pieces-container">
