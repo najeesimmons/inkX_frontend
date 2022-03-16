@@ -6,6 +6,10 @@ const PieceShow = (props) => {
     
     const piece = props.pieces.find(piece => piece._id === params.id)
     console.log(piece)
+
+    const handleDelete = async () => {
+        await props.deletePiece(piece._id)
+    }
     if (piece) {
         return (
             <div>
@@ -14,7 +18,7 @@ const PieceShow = (props) => {
                 <h2>{piece.description}</h2>
                 <div className="button-container">
                     <button>Update</button>
-                    <button>Delete</button>
+                    <button type="button" onClick={handleDelete}>Delete</button>
                 </div>
             </div>
         )

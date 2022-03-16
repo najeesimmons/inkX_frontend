@@ -72,6 +72,21 @@ useEffect(() => getArtists(), []);
       }
   };
 
+  // function to delete pieces 
+  const deletePiece = async id => {
+    console.log({id})
+    try {
+      // make delete request to delete pieces
+    await fetch(piecesUrl + `/${id}`, {
+      method: "delete",
+      })
+      // update list of pieces
+      getPieces()
+
+    } catch (error) {
+    }
+  }
+
   // useEffect to run getArtist when component mounts
   useEffect(() => {getArtists();}, []);
   // useEffect to run getPieces when component mounts
@@ -98,7 +113,7 @@ useEffect(() => getArtists(), []);
           <Route path="/artist" element={ <Artist artists={artists }/>} />
           <Route path="/artist/:id" element={ <ArtistShow artists={artists} pieces={pieces} />} />
           <Route path="/piece" element={ <Piece pieces={pieces}/> } />
-          <Route path="/piece/:id" element={ <PieceShow pieces={pieces} />} />
+          <Route path="/piece/:id" element={ <PieceShow pieces={pieces} deletePiece={deletePiece} />} />
       </Routes>
       </div>
   );
