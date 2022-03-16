@@ -78,7 +78,7 @@ const NewArtistForm = (props) => {
                     placeholder="State"
                     onChange={handleChange}
                 />
-                <input type="submit" value="Create Artist" />
+                <input type="submit" value="Submit" />
             </form>
             {/* {props.artist ? loaded() : loading()} */}
         </section>

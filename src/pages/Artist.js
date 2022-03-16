@@ -14,6 +14,7 @@ const Artist = (props) => {
               <h2>{artist.username}</h2>
               </Link>
               <h3>{artist.city}, {artist.state}</h3>
+              <hr></hr>
             </div>
           )
         })}
