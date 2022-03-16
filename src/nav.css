@@ -3,7 +3,7 @@
     justify-content: space-between;
     background-color: black;
     color: white;
-    padding: 15px;
+    padding: 2px;
     font-size: 2em;
   }
   
@@ -11,4 +11,16 @@
     color: white;
     text-decoration: none;
     font-size: 20px;
+  }
+
+  .inkX-logo {
+    width:90;
+    height: 70px;
+  }
+  
+  .link {
+    padding-right: 50px;  
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom:20px;
   }

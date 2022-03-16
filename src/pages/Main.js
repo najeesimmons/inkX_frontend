@@ -16,6 +16,7 @@ const Main = (props) => {
         <div className="form-and-pieces-container">
           <NewArtistForm className= "form" createArtist={props.createArtist} />
           <div className="pieces-container">
+          <h1>New Posts</h1>
           {props.pieces.map((piece) => {
           return (
             <div key={piece._id} className="each-piece">
