@@ -1,4 +1,5 @@
 .artist_pic {
     height: 350px;
     width: 350px;
+    border-radius: 5px;
 }

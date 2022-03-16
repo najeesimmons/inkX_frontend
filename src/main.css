@@ -1,12 +1,18 @@
 .pieces-container{
+    border: 1px solid black;
+    border-radius: 5px;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     flex: 1;
+    margin: 5px;
+    padding: 5px;
 }
 
 .piece-image {
     width:  150px;
     height: 150px; 
+    border-radius: 5px;
+    margin: 0;
 }
 
 .form-and-pieces-container {

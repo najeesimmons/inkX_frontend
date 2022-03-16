@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import "../pieceShow.css"
 
 const PieceShow = (props) => {
 
@@ -13,9 +14,11 @@ const PieceShow = (props) => {
     if (piece) {
         return (
             <div>
-                <img src={piece.image} alt={piece.artist} />
                 <br></br>
-                <h2>{piece.description}</h2>
+                <img src={piece.image} className="piece-image" alt={piece.artist} />
+                <br></br>
+                <h2>{piece.title}</h2>
+                <p>{piece.description}</p>
                 <div className="button-container">
                     <button>Update</button>
                     <button type="button" onClick={handleDelete}>Delete</button>
