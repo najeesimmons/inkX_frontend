@@ -2,7 +2,6 @@ import { useParams } from "react-router";
 import "../artistShow.css"
 import { Link } from "react-router-dom";
 
-// import ArtistPieces from "./ArtistPieces"
 
 const Show = (props) => {
    
@@ -17,14 +16,18 @@ const Show = (props) => {
 
     return(
         <div>
+            <br></br>
             <div>
-            <img src={artist.profile_pic} alt ={artist.username}/>
+            <img src={artist.profile_pic} className="artist-pic" alt ={artist.username}/>
             </div>
+            <br></br>
             <div>
-                {artist.bio}
+                "{artist.bio}."
             </div>
+            <br></br>
+            <hr></hr>
             <h2>{artist.username}</h2>
-            {pieces && <div>
+            {pieces && <div className="piece-container">
                 {pieces.map(piece => {
                     return (
                         <div key={piece._id}>
