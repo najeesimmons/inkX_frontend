@@ -15,7 +15,7 @@ const PieceShow = (props) => {
         return (
             <div>
                 <br></br>
-                <img src={piece.image} className="piece-image" alt={piece.artist} />
+                <img src={piece.image} className="piece" alt={piece.artist} />
                 <br></br>
                 <h2>{piece.title}</h2>
                 <p>{piece.description}</p>
