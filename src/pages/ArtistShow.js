@@ -1,6 +1,5 @@
 import { useParams } from "react-router";
 import "../artistShow.css"
-import { Link } from "react-router-dom";
 
 
 const Show = (props) => {
