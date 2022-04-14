@@ -2,11 +2,11 @@ import './App.css';
 import { Route, Routes } from "react-router-dom";
 // import { useParams } from "react-router";
 import Nav from "./components/Nav/Nav";
-import Artist from './pages/Artist';
-import ArtistShow from './pages/ArtistShow';
-import Piece from './pages/Piece';
-import PieceShow from './pages/PieceShow';
-import Main from "./pages/Main";
+import Artist from './pages/Artist/Artist';
+import ArtistShow from './pages/ArtistShow/ArtistShow';
+import Piece from './pages/Piece/Piece';
+import PieceShow from './pages/PieceShow/PieceShow';
+import Main from "./pages/Main/Main";
 import { useState, useEffect } from "react";
 
 function App() {

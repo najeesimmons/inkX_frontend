@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import "../artistShow.css"
+import "./artistShow.css"
 
 
 const Show = (props) => {
