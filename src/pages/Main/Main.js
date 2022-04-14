@@ -1,7 +1,7 @@
-import NewArtistForm from "../../components/NewArtistForm";
+import NewArtistForm from "../../components/NewArtistForm/NewArtistForm";
 import { Link } from "react-router-dom";
 import "./main.css"
-import Slideshow from "../../components/Slideshow";
+import Slideshow from "../../components/SlideShow/Slideshow";
 // import ArtistPieces from "..components/ArtistPieces"
 
 

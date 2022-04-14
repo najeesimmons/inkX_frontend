@@ -2,7 +2,7 @@
   background-color: black;
 }
 
-.nav {
+nav {
   display: flex;
   justify-content: space-between;
   max-width: 1440px;
@@ -10,14 +10,13 @@
   align-items: center;
   overflow: hidden;
   margin: 0 auto;
-  
 }
 
-.nav a {
+nav a {
   text-decoration: none;
 }
 
-.nav ul {
+nav ul {
   display: flex;
   align-items: center;
   list-style: none;

@@ -5,7 +5,7 @@ import "./nav.css";
 const Nav = (props) => {
   return (
     <div className="navWrapper">
-      <nav className="nav">
+      <nav>
         <img
           src="https://i.imgur.com/TYlGYTk.png"
           className="inkX-logo"

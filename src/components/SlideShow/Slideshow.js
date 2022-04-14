@@ -1,5 +1,5 @@
 import { Slide } from 'react-slideshow-image';
-import "../slideshow.css";
+import "./slideshow.css";
 
 const slideImages = [
     {
