@@ -8,14 +8,14 @@ import Slideshow from "../../components/SlideShow/Slideshow";
 const Main = (props) => {
   return (
     <div className="main-container">
-        <h1>inkX</h1>
+        <h1>ink X</h1>
         <h2 className="site-title">where artist connect to customers...</h2>
         <br></br>
         <Slideshow/>
         <div className="form-and-pieces-container">
           <NewArtistForm className= "form" createArtist={props.createArtist} />
           <div className="pieces-container">
-          <h2>Newest Posts</h2>
+          <h2 className="page-title">New Posts</h2>
           {props.pieces.map((piece) => {
           return (
             <div key={piece._id} className="each-piece">

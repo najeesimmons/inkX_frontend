@@ -38,3 +38,9 @@
     transform: rotate(360deg);
   }
 }
+
+.page-title {
+    font-family: 'Noto Serif', serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
