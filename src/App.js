@@ -1,7 +1,7 @@
 import './App.css';
 import { Route, Routes } from "react-router-dom";
 // import { useParams } from "react-router";
-import Nav from "./components/Nav";
+import Nav from "./components/Nav/Nav";
 import Artist from './pages/Artist';
 import ArtistShow from './pages/ArtistShow';
 import Piece from './pages/Piece';
