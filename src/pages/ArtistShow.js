@@ -22,11 +22,12 @@ const Show = (props) => {
             </div>
             <br></br>
             <div>
+            <h2>{artist.username}</h2>
                 "{artist.bio}."
             </div>
             <br></br>
             <hr></hr>
-            <h2>{artist.username}</h2>
+            <br></br>
             {pieces && <div className="piece-container">
                 {pieces.map(piece => {
                     return (

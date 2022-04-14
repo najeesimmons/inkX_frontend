@@ -104,8 +104,9 @@ useEffect(() => getArtists(), []);
   }
   
   return (
-      <div className="App">
+      <>
       <Nav />
+      <div className="App">
       <Routes>
           {/* <Route exact path="/" element={ <><Main/><Form/></>} /> */}
           <Route exact path="/" element={ <Main createArtist={createArtist} pieces={pieces} />} />
@@ -116,6 +117,7 @@ useEffect(() => getArtists(), []);
           <Route path="/piece/:id" element={ <PieceShow pieces={pieces} deletePiece={deletePiece} />} />
       </Routes>
       </div>
+      </>
   );
 }
 
