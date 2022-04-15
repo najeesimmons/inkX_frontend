@@ -19,16 +19,16 @@ $contrastcolor: white;
 // Header
 // --------------------------
 
-nav {
-    @include white-text-black-bg;
-    display: flex;
-    justify-content: flex-start;
+// nav {
+//     @include white-text-black-bg;
+//     display: flex;
+//     justify-content: flex-start;
 
-    a {
-        @include white-text-black-bg;
-        div {
-            margin: 10px;
-            font-size: large;
-        }
-    }
-}
+//     a {
+//         @include white-text-black-bg;
+//         div {
+//             margin: 10px;
+//             font-size: large;
+//         }
+//     }
+// }
