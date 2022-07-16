@@ -1,9 +1,18 @@
+.artist-wrapper {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.artist-heading {
+text-align: left;
+}
+
 .artist-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    max-width: 950px;
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 .artist_pic {

@@ -1,12 +1,15 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./piece.css";
 import Masonry from "react-masonry-css";
+
 
 const Piece = ({ pieces }) => {
   const allPieces = pieces.map((piece) => {
     return (
       <div key={piece._id}>
+        <Link to={`/piece/${piece._id}`}>
         <img src={piece.image} alt={piece.title} className="piece-pic" />
+        </Link>
       </div>
     );
   });

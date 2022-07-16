@@ -3,6 +3,8 @@ import "./artist.css";
 
 const Artist = (props) => {
   return (
+    <div className="artist-wrapper">
+      <h2 className="artist-heading">Find Artists</h2>
     <div className="artist-container">
       {props.artists.map((artist) => {
         return (
@@ -25,6 +27,7 @@ const Artist = (props) => {
           </div>
         );
       })}
+    </div>
     </div>
   );
 };
