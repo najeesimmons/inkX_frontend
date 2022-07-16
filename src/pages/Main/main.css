@@ -17,14 +17,16 @@ h2 {
 .pieces-outer-container {
   border: 1px solid black;
   border-radius: 5px;
-  margin: 5px;
+  margin-left: 5px;
   padding: 10px;
 }
 
 .pieces-inner-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  flex: 1;
+  gap: 0px 0px;
+  column-gap: 4px;
+  /* row-gap: 0; */
 }
 
 .piece-image {
@@ -32,6 +34,10 @@ h2 {
   height: 150px;
   border-radius: 5px;
   margin: 0;
+}
+
+.each-piece {
+    margin: 0;
 }
 
 .form-and-pieces-container {

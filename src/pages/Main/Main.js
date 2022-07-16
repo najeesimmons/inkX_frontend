@@ -19,7 +19,6 @@ const Main = (props) => {
           {props.pieces.map((piece) => {
             return (
               <div key={piece._id} className="each-piece">
-                <br></br>
                 <Link to={`/piece/${piece._id}`}>
                   <img
                     src={piece.image}
@@ -27,7 +26,6 @@ const Main = (props) => {
                     alt={piece.title}
                   />
                 </Link>
-                <br></br>
               </div>
             );
           })}
