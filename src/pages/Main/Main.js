@@ -13,8 +13,9 @@ const Main = (props) => {
       <Slideshow />
       <div className="form-and-pieces-container">
         <NewArtistForm className="form" createArtist={props.createArtist} />
-        <div className="pieces-container">
+        <div className="pieces-outer-container">
           <h2 className="page-title">New Posts</h2>
+          <div className="pieces-inner-container">
           {props.pieces.map((piece) => {
             return (
               <div key={piece._id} className="each-piece">
@@ -30,6 +31,7 @@ const Main = (props) => {
               </div>
             );
           })}
+          </div>
         </div>
       </div>
     </div>

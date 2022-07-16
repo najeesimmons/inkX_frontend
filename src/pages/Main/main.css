@@ -1,32 +1,39 @@
+.main-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 60px;
-    margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: 60px;
+  margin: 0 auto;
 }
 
 h2 {
-    font-family: 'Noto Serif', serif;
-    margin: 0 auto;  
+  font-family: "Noto Serif", serif;
+  margin: 0 auto;
 }
 
-.pieces-container{
-    border: 1px solid black;
-    border-radius: 5px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    flex: 1;
-    margin: 5px;
-    padding: 20px;
+.pieces-outer-container {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.pieces-inner-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  flex: 1;
 }
 
 .piece-image {
-    width:  150px;
-    height: 150px; 
-    border-radius: 5px;
-    margin: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  margin: 0;
 }
 
 .form-and-pieces-container {
-    display: flex;
+  display: flex;
 }
-
