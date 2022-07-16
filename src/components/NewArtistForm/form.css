@@ -19,5 +19,20 @@
 }
 
 input {
+  margin-bottom: 10px;
+}
+
+input[type="submit"]{
+  /* background-color: green; */
+  border-radius: 5px;
+  height: 30px;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 10px;
   margin-bottom: 15px;
+}
+
+form p {
+  font-size: 13px;
+  font-weight: bold;
 }
