@@ -10,7 +10,7 @@ import Main from "./pages/Main/Main";
 import { useState, useEffect } from "react";
 
 function App() {
-  // We will use the Route component to specify each route
+  // We will use the Route component to specify each route -- ok
 
   //state to hold the artist list data
   const [artists, setArtists] = useState([]);
