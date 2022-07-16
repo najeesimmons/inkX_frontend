@@ -6,7 +6,7 @@
 
 .form-box {
   border-radius: 5px;
-  border: 1px solid black;
+  box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.2);
   padding: 20px;
   margin-right: 5px;
   flex: 1;
