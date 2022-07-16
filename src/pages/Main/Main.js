@@ -4,7 +4,7 @@ import "./main.css";
 import Slideshow from "../../components/SlideShow/Slideshow";
 // import ArtistPieces from "..components/ArtistPieces"
 
-const Main = (props) => {
+const Main = ({createArtist, pieces}) => {
   return (
     <div className="main-container">
       <h1>ink X</h1>
@@ -12,11 +12,11 @@ const Main = (props) => {
       <br></br>
       <Slideshow />
       <div className="form-and-pieces-container">
-        <NewArtistForm className="form" createArtist={props.createArtist} />
+        <NewArtistForm className="form" createArtist={createArtist} />
         <div className="pieces-outer-container">
           <h2 className="page-title">New Posts</h2>
           <div className="pieces-inner-container">
-          {props.pieces.map((piece) => {
+          {pieces.slice(0,9).map((piece) => {
             return (
               <div key={piece._id} className="each-piece">
                 <Link to={`/piece/${piece._id}`}>
