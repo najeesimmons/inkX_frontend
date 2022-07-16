@@ -3,7 +3,7 @@ import "./artist.css";
 
 const Artist = (props) => {
   return (
-    <div>
+    <div className="artist-container">
       {props.artists.map((artist) => {
         return (
           <div key={artist._id}>
@@ -14,12 +14,11 @@ const Artist = (props) => {
                 className="artist_pic"
                 alt={artist.username}
               />
-              <h3>{artist.username}</h3>
+              <h3 className="artist-name">{artist.username}</h3>
             </Link>
-            <h3>
+            <h3 className="artist-location">
               {artist.city}, {artist.state}
             </h3>
-            <hr />
           </div>
         );
       })}
