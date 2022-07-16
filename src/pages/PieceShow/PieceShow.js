@@ -12,22 +12,30 @@ const PieceShow = (props) => {
   };
   if (piece) {
     return (
-      <div>
-        <br></br>
-        <img src={piece.image} className="piece" alt={piece.artist} />
-        <br></br>
-        <h2>{piece.title}</h2>
-        <p>{piece.description}</p>
-        <div className="button-container">
-          <button>Update</button>
-          <button type="button" onClick={handleDelete}>
-            Delete
-          </button>
+      <div className="piece-show-wrapper">
+        <div className="piece-show-container">
+          <div className="piece-show-image-container">
+          <img src={piece.image} className="piece" alt={piece.artist} />
+          </div>
+          <div className="piece-show-info">
+            <p className="piece-show-artist-name">ARTIST NAME</p>
+          <h3 className="piece-show-title">{piece.title}</h3>
+          <p className="piece-description">{piece.description}</p>
+          <h4>Comments</h4>
+          <h5>Comments temporarily disabled.</h5>
+          <div className="button-container">
+            <button className="piece-show-update">Update</button>
+            <button type="button" onClick={handleDelete} className="piece-show-delete">
+              Delete
+            </button>
+          </div>
+          </div>
         </div>
       </div>
     );
   }
-  return null;
+
+  return <h1>Sorry, no piece was found.</h1>;
 };
 
 export default PieceShow;

@@ -2,13 +2,12 @@ import { Link } from "react-router-dom";
 import "./piece.css";
 import Masonry from "react-masonry-css";
 
-
 const Piece = ({ pieces }) => {
   const allPieces = pieces.map((piece) => {
     return (
       <div key={piece._id}>
         <Link to={`/piece/${piece._id}`}>
-        <img src={piece.image} alt={piece.title} className="piece-pic" />
+          <img src={piece.image} alt={piece.title} className="piece-pic" />
         </Link>
       </div>
     );
@@ -37,21 +36,12 @@ const Piece = ({ pieces }) => {
 
 export default Piece;
 
-// <div className="pieces-container">
-// {pieces.map((piece) => {
-//   return (
-//     <div key={piece._id} className="piece-card">
-//       <Link to={`/piece/${piece._id}`}>
-//         <img src={piece.image} alt={piece.title} className="piece-pic" />
-//       </Link>
-//       <div className="piece-info-container">
-//         <h4>
-//           <b></b>
-//           <p className="artist-location"></p>
 
-//         </h4>
-//       </div>
-//     </div>
-//   );
-// })}
-// </div>
+      // <div className="piece-info-container">
+      //   <h4>
+      //     <b>Some Info</b>
+      //     <p>Some More Info</p>
+      //   </h4>
+      // </div>
+
+
