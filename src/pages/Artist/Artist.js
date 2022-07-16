@@ -8,15 +8,20 @@ const Artist = (props) => {
         return (
           <div key={artist._id} className="artist-card">
             <Link to={`/artist/${artist._id}`}>
-            <img src={artist.profile_pic} alt={artist.username} className="artist_pic" />
+              <img
+                src={artist.profile_pic}
+                alt={artist.username}
+                className="artist_pic"
+              />
             </Link>
             <div className="artist-info-container">
               <h4>
                 <b>{artist.username}</b>
-                <p className="artist-location">{artist.city}, {artist.state}</p>
+                <p className="artist-location">
+                  {artist.city}, {artist.state}
+                </p>
               </h4>
             </div>
-          
           </div>
         );
       })}
