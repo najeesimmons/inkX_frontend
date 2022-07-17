@@ -1,14 +1,14 @@
 import { useParams } from "react-router";
 import "./pieceShow.css";
 
-const PieceShow = (props) => {
+const PieceShow = (pieces, deletePiece) => {
   const params = useParams();
-
-  const piece = props.pieces.find((piece) => piece._id === params.id);
-  console.log(piece);
+  const {pieces :work} = pieces
+  const piece =work.find((piece) => piece._id === params.id);
+  
 
   const handleDelete = async () => {
-    await props.deletePiece(piece._id);
+    await deletePiece(piece._id);
   };
   if (piece) {
     return (

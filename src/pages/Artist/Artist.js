@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import "./artist.css";
 
-const Artist = (props) => {
+const Artist = ({artists}) => {
   return (
     <div className="artist-wrapper">
       <h2 className="artist-heading">Find Artists</h2>
       <div className="artist-container">
-        {props.artists.map((artist) => {
+        {artists.map((artist) => {
           return (
             <div key={artist._id} className="artist-card">
               <Link to={`/artist/${artist._id}`}>
