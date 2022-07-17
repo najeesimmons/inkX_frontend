@@ -21,7 +21,7 @@ const Show = ({ artists, pieces }) => {
 
   return (
     <div className="artist-profile-wrapper">
-      <div className="artist-info-container">
+      <div className="artist-show-info-container">
         <img
           src={artist.profile_pic}
           className="artist-pic"
