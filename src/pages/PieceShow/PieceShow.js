@@ -3,8 +3,8 @@ import "./pieceShow.css";
 
 const PieceShow = (pieces, deletePiece) => {
   const params = useParams();
-  const {pieces :work} = pieces
-  const piece =work.find((piece) => piece._id === params.id);
+  const {pieces : work} = pieces
+  const piece = work.find((piece) => piece._id === params.id);
   
 
   const handleDelete = async () => {
