@@ -34,7 +34,7 @@ const NewArtistForm = (props) => {
   
     return (
         <section className="form-box">
-            <h1 className="page-title">Create Profile</h1>
+            <h1 className="form-page-title">Create Profile</h1>
             <form className ="form" onSubmit={handleSubmit}>
                 <input
                     type="text"

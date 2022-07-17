@@ -5,11 +5,11 @@
 nav {
   display: flex;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1050px;
   overflow: hidden;
   margin: 0 auto;
   margin-bottom: 25px;
-  max-width: 1050px;
+
 }
 
 nav a {

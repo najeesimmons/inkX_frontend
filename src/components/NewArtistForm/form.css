@@ -13,6 +13,12 @@
   height: 450px;
 }
 
+.form-page-title {
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
 .piece-image {
   height: 150px;
   width: 150px;
