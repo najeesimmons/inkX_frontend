@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import "./artistShow.css";
 import Masonry from "react-masonry-css";
 
@@ -42,12 +43,14 @@ const Show = ({ artists, pieces }) => {
             {artistPieces.map((piece) => {
               return (
                 <div key={piece._id}>
+                  <Link to={`/piece/${piece._id}`}>
                   <img
                     key={piece._id}
                     src={piece.image}
                     className="artist-show-profile-piece"
                     alt={piece.title}
                   />
+                  </Link>
                 </div>
               );
             })}
