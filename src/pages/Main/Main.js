@@ -1,39 +1,37 @@
-import NewArtistForm from "../../components/NewArtistForm/NewArtistForm";
+// import NewArtistForm from "../../components/NewArtistForm/NewArtistForm";
 import { Link } from "react-router-dom";
 import "./main.css";
-import Slideshow from "../../components/SlideShow/Slideshow";
-// import ArtistPieces from "..components/ArtistPieces"
-
-const Main = ({createArtist, pieces}) => {
+// import Slideshow from "../../components/Slideshow/Slideshow";
+const Main = ({ createArtist, pieces }) => {
   return (
-    <div className="main-container">
-      <h1>ink X</h1>
-      <h2 className="site-title">where artist connect to clients...</h2>
-      <br></br>
-      <Slideshow />
-      <div className="form-and-pieces-container">
-        <NewArtistForm className="form" createArtist={createArtist} />
-        <div className="pieces-outer-container">
-          <h2 className="main-page-title">New Posts</h2>
-          <div className="pieces-inner-container">
-          {pieces.slice(0,9).map((piece) => {
-            return (
-              <div key={piece._id} className="each-piece">
-                <Link to={`/piece/${piece._id}`}>
-                  <img
-                    src={piece.image}
-                    className="piece-image"
-                    alt={piece.title}
-                  />
-                </Link>
-              </div>
-            );
-          })}
-          </div>
+    <>
+      <div className="main-container">
+        <div className="tagline-box">
+          <h1 className="inkx">ink x</h1>
+          <h1>Want to find the <em>best</em> artist for your next tattoo?</h1>
+        </div>
+        <div className="the-process">
+          <h3>We help make it simple:</h3>
+          <p>
+            1. Explore our collection to find pieces you love by creators in
+            your area.
+          </p>
+          <p>
+            2. Learn about the artist to see if they're you're type of guy or gal.
+          </p>
+          <p>3. If you like what you find -- connect!</p>
+
+          <button className="explore-button">
+            <Link to="/piece">Explore</Link>
+          </button>
         </div>
       </div>
-    </div>
+      {/* <div className="main-slideshow-container">
+        <Slideshow pieces={pieces} />
+      </div> */}
+    </>
   );
 };
 
 export default Main;
+

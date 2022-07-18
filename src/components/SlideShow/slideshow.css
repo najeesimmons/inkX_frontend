@@ -1,25 +1,27 @@
-@import "react-slideshow-image/dist/styles.css";
-
-.slide-container {
-  /* box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
-  border-radius: 5px;
-  padding: 0;
-  margin: 0;
+.slideshow-wrapper {
+  margin: 0 auto;
+  max-width: 950px;
 }
-.each-slide > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    height: 450px;
-    max-width: 950;
-    margin-bottom: 15px;
-    border-radius: 15px;
-  }
-  
-  /* .each-slide span {
-    padding: 20px;
-    font-size: 20px;
-    background: #efefef;
-    text-align: center;
-  } */
+
+.keen-slider {
+  border-radius: 5px;
+
+  margin: 0 auto;
+  height: 200px;
+}
+
+[class^="number-slide"],
+[class*=" number-slide"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 500;
+  max-height: 150px;
+  border-radius: 5px;
+}
+
+.main-slide-image {
+
+}
