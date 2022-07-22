@@ -4,18 +4,16 @@
 }
 
 .piece-show-container {
-  /* margin-top: 100px; */
   margin: 0 auto;
   display: flex;
-  border: 1px rgb(190, 189, 189) solid;
+  border: 1px rgb(182, 174, 174) solid;
   border-radius: 5px;
-}
-.piece-show-image-container {
 }
 
 .piece-show-info {
   padding: 20px;
   text-align: left;
+  background-color: white;
 }
 .piece-show-artist-name {
   border-bottom: 1px rgb(190, 189, 189) solid;
@@ -42,18 +40,15 @@ h5 {
 
 .button-container {
   display: flex;
-}
-
-.button-container button {
-  height: 30px;
-  width: 100px;
-  border-radius: 5px;
-  margin-top: 50px;
-  font-weight: bold;
+  button {
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    margin-top: 50px;
+    font-weight: bold;
+  }
 }
 
 .piece-show-update {
   margin-right: 5px;
-}
-.piece-show-delete {
 }

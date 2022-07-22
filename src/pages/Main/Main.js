@@ -1,14 +1,12 @@
-// import NewArtistForm from "../../components/NewArtistForm/NewArtistForm";
 import { Link } from "react-router-dom";
-import "./main.css";
-// import Slideshow from "../../components/Slideshow/Slideshow";
+import "./main.scss";
 const Main = ({ createArtist, pieces }) => {
   return (
     <>
       <div className="main-container">
         <div className="tagline-box">
           <h1 className="inkx">ink x</h1>
-          <h1>Want to find the <em>best</em> artist for your next tattoo?</h1>
+          <h1 className="tagline">Want to find the <em>best</em> artist for your next tattoo?</h1>
         </div>
         <div className="the-process">
           <h3>We help make it simple:</h3>
@@ -26,9 +24,6 @@ const Main = ({ createArtist, pieces }) => {
           </button>
         </div>
       </div>
-      {/* <div className="main-slideshow-container">
-        <Slideshow pieces={pieces} />
-      </div> */}
     </>
   );
 };

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import "./artist.css";
+import "./artist.scss";
 
 const Artist = ({artists}) => {
+  console.log("artists", artists)
   return (
     <div className="artist-wrapper">
       <h2 className="artist-heading">Find Artists</h2>
@@ -11,7 +12,7 @@ const Artist = ({artists}) => {
             <div key={artist._id} className="artist-card">
               <Link to={`/artist/${artist._id}`}>
                 <img
-                  src={artist.profile_pic}
+                  src={artist.imageUrl}
                   alt={artist.username}
                   className="artist_pic"
                 />
@@ -19,9 +20,9 @@ const Artist = ({artists}) => {
 
               <div className="artist-info-container">
                 <h4>
-                  <b>{artist.username}</b>
+                  <b>{artist.name}</b>
                   <p className="artist-location">
-                    {artist.city}, {artist.state}
+                    {artist.location.city}, {artist.location.state}
                   </p>
                 </h4>
               </div>

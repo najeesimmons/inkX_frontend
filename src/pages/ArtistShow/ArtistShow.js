@@ -1,18 +1,18 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import "./artistShow.css";
+import "./artistShow.scss";
 import Masonry from "react-masonry-css";
 
-const Show = ({ artists, pieces }) => {
+const Show = ({ artists, tattoos }) => {
   const params = useParams();
 
-  const artist = artists.find((artist) => artist._id === params.id);
+  const artist = artists.find((artist) => artist._id.toString() === params.id);
   if (!artist) {
     return null;
   }
 
-  const artistPieces = pieces.filter((piece) => piece.artist === artist._id);
-
+  // const artistPieces = tattoos.filter((tattoo) => tattoo.artist.artist_id === artist._id);
+  const artistPieces = artist.portfolio
   const breakpointColumnsObj = {
     default: 3,
     1100: 3,
@@ -24,12 +24,12 @@ const Show = ({ artists, pieces }) => {
     <div className="artist-profile-wrapper">
       <div className="artist-show-info-container">
         <img
-          src={artist.profile_pic}
+          src={artist.imageUrl}
           className="artist-pic"
-          alt={artist.username}
+          alt={artist.name}
         />
-        <h4 className="artist-show-location">{artist.city}, {artist.state}</h4>
-        <h2>{artist.username}</h2>"{artist.bio}."
+        <h4 className="artist-show-location">{artist.location.city}, {artist.location.state}</h4>
+        <h2>{artist.name}</h2>
         <button>Message</button>
         <h5>Messaging temporarily disabled.</h5>
       </div>
@@ -42,11 +42,11 @@ const Show = ({ artists, pieces }) => {
           >
             {artistPieces.map((piece) => {
               return (
-                <div key={piece._id}>
-                  <Link to={`/piece/${piece._id}`}>
+                <div key={piece.id}>
+                  <Link to={`/piece/${piece.id}`}>
                   <img
-                    key={piece._id}
-                    src={piece.image}
+                    key={piece.id}
+                    src={piece.image.url}
                     className="artist-show-profile-piece"
                     alt={piece.title}
                   />
