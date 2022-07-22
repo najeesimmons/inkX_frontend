@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import "./pieceShow.css";
+import "./pieceShow.scss";
 
 const PieceShow = (props) => {
   const params = useParams();

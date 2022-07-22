@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./main.css";
+import "./main.scss";
 const Main = ({ createArtist, pieces }) => {
   return (
     <>

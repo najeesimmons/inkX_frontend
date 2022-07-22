@@ -1,5 +1,5 @@
-import "./index.css";
-import "./App.css";
+import "./index.scss";
+import "./App.scss";
 import { Route, Routes } from "react-router-dom";
 // import { useParams } from "react-router";
 import Nav from "./components/Nav/Nav";

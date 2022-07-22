@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./piece.css";
+import "./piece.scss";
 import Masonry from "react-masonry-css";
 
 const Piece = ({ tattoos }) => {

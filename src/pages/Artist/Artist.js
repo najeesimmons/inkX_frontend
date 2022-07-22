@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./artist.css";
+import "./artist.scss";
 
 const Artist = ({artists}) => {
   console.log("artists", artists)
