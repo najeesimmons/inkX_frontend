@@ -98,7 +98,7 @@ function App() {
   if (artistsIsLoading && tattoosLoading) {
     return <div>Loading...</div>;
   }
-  console.log("tattoos", tattoos)
+  console.log("tattoos", tattoos);
   return (
     <>
       <Nav />
