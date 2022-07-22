@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./artist.css";
 
 const Artist = ({artists}) => {
+  console.log("artists", artists)
   return (
     <div className="artist-wrapper">
       <h2 className="artist-heading">Find Artists</h2>
@@ -9,13 +10,13 @@ const Artist = ({artists}) => {
         {artists.map((artist) => {
           return (
             <div key={artist._id} className="artist-card">
-              <Link to={`/artist/${artist._id}`}>
+              {/* <Link to={`/artist/${artist._id}`}> */}
                 <img
-                  src={artist.profile_pic}
+                  src={artist.imageUrl}
                   alt={artist.username}
                   className="artist_pic"
                 />
-              </Link>
+              {/* </Link> */}
 
               <div className="artist-info-container">
                 <h4>

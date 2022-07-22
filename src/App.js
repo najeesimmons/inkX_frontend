@@ -28,11 +28,17 @@ function App() {
   const parseArtists = (data) =>
     data.map((d) => {
       return {
-        id: d.data?.user_id,
-        name: d.data?.name,
-        username: d.data?.username,
-        imageUrl: d.data?.image_url,
-        portfolio: d.data?.portfolio_preview,
+        _id: d?.user_id,
+        name: d?.name,
+        username: d?.username,
+        imageUrl: d?.image_url,
+        portfolio: d?.portfolio_preview,
+        location: {
+          zip_code: d?.current_shop?.address?.zip_code,
+          city: d?.current_shop?.address?.city,
+          state: d?.current_shop?.address?.state,
+          country: d?.current_shop?.address?.country,
+        }
       };
     });
 
