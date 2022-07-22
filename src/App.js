@@ -11,7 +11,6 @@ import Main from "./pages/Main/Main";
 import { useState, useEffect } from "react";
 
 function App() {
-
   const [artists, setArtists] = useState([]);
   const [artistsIsLoading, setArtistsIsLoading] = useState(false);
 
@@ -34,11 +33,17 @@ function App() {
         imageUrl: d?.image_url,
         portfolio: d?.portfolio_preview,
         location: {
+          shop_name: d?.current_shop?.name,
           zip_code: d?.current_shop?.address?.zip_code,
           city: d?.current_shop?.address?.city,
           state: d?.current_shop?.address?.state,
           country: d?.current_shop?.address?.country,
-        }
+          latitude: d?.location?.latitude,
+          longitude: d?.location?.longitude,
+          allow_bookings: d?.allow_bookings,
+          availability: d?.availability,
+        },
+      
       };
     });
 
@@ -57,7 +62,6 @@ function App() {
       };
     });
 
-
   // useEffect to run getArtist when component mounts
   useEffect(() => {
     const getArtists = async () => {
@@ -73,8 +77,7 @@ function App() {
     };
     getArtists();
   }, []);
-  
-  
+
   // useEffect to run getPieces when component mounts
   useEffect(() => {
     const getTattoos = async () => {

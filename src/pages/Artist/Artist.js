@@ -20,9 +20,9 @@ const Artist = ({artists}) => {
 
               <div className="artist-info-container">
                 <h4>
-                  <b>{artist.username}</b>
+                  <b>{artist.name}</b>
                   <p className="artist-location">
-                    {artist.city}, {artist.state}
+                    {artist.location.city}, {artist.location.state}
                   </p>
                 </h4>
               </div>
