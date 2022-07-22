@@ -1,6 +1,9 @@
 .artist-wrapper {
   max-width: 950px;
   margin: 0 auto;
+  @media (max-width: 768px) {
+    max-width: 85%;
+  }
 }
 
 .artist-heading {
@@ -13,6 +16,10 @@
   gap: 10px;
   margin: 0 auto;
   margin-top: 20px;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+  }
 }
 
 .artist_pic {
@@ -20,6 +27,8 @@
   height: 70%;
   border-radius: 5px 5px 0 0;
   object-fit: cover;
+  @media (max-width: 768px) {
+  }
 }
 
 .artist-location {
@@ -39,4 +48,7 @@
 
 .artist-info-container {
   padding: 2px 16px;
+  @media (max-width: 786px) {
+    padding: 2px, 5px;
+  }
 }

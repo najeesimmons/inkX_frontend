@@ -7,6 +7,10 @@
   margin-top: 150px;
   margin-bottom: 15px;
   display: flex;
+  @media (max-width: 786px) {
+    flex-direction: column;
+    margin-top: 0;
+  }
 }
 
 .tagline-box {
@@ -16,13 +20,29 @@
   font-size: 25px;
   margin-right: 10px;
   text-align: left;
-  max-width: 500px;
+  @media (max-width: 786px) {
+    font-size: 17px;
+    margin: 20px
+  }
+}
+
+.tagline {
+  @media (max-width: 768px) {
+  font-size: 25px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  }
+
+
 }
 
 .inkx {
   letter-spacing: 1px;
   font-size: 40px;
   margin-top: 0;
+  @media (max-width: 786px) {
+    text-align: center;
+  }
 }
 
 h3 {
@@ -33,8 +53,14 @@ h3 {
 .the-process {
   border-radius: 10px;
   background: white;
-  max-width: 500px;
+  // max-width: 500px;
   padding: 40px;
+  @media (max-width: 786px) {
+    padding: 20px;
+    max-width: 70%;
+    margin: 0 auto;
+  }
+
   h3 {
     margin-top: 0;
     text-align: center;

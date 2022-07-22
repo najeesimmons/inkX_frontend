@@ -9,6 +9,11 @@ nav {
   overflow: hidden;
   margin: 0 auto;
   margin-bottom: 25px;
+
+  @media (max-width: 768px) {
+    max-width: 90%;
+  }
+
   ul {
     display: flex;
     align-items: center;
