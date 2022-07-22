@@ -18,7 +18,7 @@ const PieceShow = (props) => {
             />
           </div>
           <div className="piece-show-info">
-            <p className="piece-show-artist-name">ARTIST NAME</p>
+            <p className="piece-show-artist-name">by {piece.artist.name}</p>
             <h3 className="piece-show-title">{piece.description}</h3>
             <p className="piece-description">{piece.description}</p>
             <h4>Comments</h4>
