@@ -2,7 +2,7 @@
 import "./piece.css";
 import Masonry from "react-masonry-css";
 
-const Piece = ({ tattoos }) => {
+const Piece = ({ tattoos, tattoo_id, description, imageUrl }) => {
   console.log(tattoos)
   const allPieces = tattoos.map((tattoo) => {
     return (

@@ -20,10 +20,10 @@ function App() {
 
   // artists "database" URL
   const artistsUrl =
-    "https://backend-api.tattoodo.com/api/v2/search/artists/bookable?lat=40.7135&lon=-73.3546&page=1&limit=24";
+    "https://backend-api.tattoodo.com/api/v2/search/artists/bookable?lat=40.7135&lon=-73.3546&page=1&limit=100";
   // pieces "database" URL
   const tattoosUrl =
-    "https://backend-api.tattoodo.com/api/v2/feeds/explore?seed=4&limit=24&page=2";
+    "https://backend-api.tattoodo.com/api/v2/feeds/explore?seed=4&limit=100&page=2";
 
   const parseArtists = (data) =>
     data.map((d) => {
@@ -35,6 +35,7 @@ function App() {
         portfolio: d.data?.portfolio_preview,
       };
     });
+
   const parseTattoos = (data) =>
     data.map((d) => {
       return {
@@ -50,38 +51,39 @@ function App() {
       };
     });
 
-  const getArtists = async () => {
-    try {
-      setArtistsIsLoading(true);
-      const response = await fetch(artistsUrl);
-      const data = await response.json();
-      setArtistsIsLoading(false);
-      setArtists(parseArtists(data.data));
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const getTattoos = async () => {
-    try {
-      setTattoosLoading(true);
-      const response = await fetch(tattoosUrl);
-      const data = await response.json();
-      setTattoosLoading(false);
-      setTattoos(parseTattoos(data.data));
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   // useEffect to run getArtist when component mounts
   useEffect(() => {
+    const getArtists = async () => {
+      try {
+        setArtistsIsLoading(true);
+        const response = await fetch(artistsUrl);
+        const data = await response.json();
+        setArtistsIsLoading(false);
+        setArtists(parseArtists(data.data));
+      } catch (error) {
+        console.error(error);
+      }
+    };
     getArtists();
-  },);
+  }, []);
+  
+  
   // useEffect to run getPieces when component mounts
   useEffect(() => {
+    const getTattoos = async () => {
+      try {
+        setTattoosLoading(true);
+        const response = await fetch(tattoosUrl);
+        const data = await response.json();
+        setTattoosLoading(false);
+        setTattoos(parseTattoos(data.data));
+      } catch (error) {
+        console.error(error);
+      }
+    };
     getTattoos();
-  },);
+  }, []);
 
   // if isLoading for any component state is truthy, display "loading..." message
   // else state is changed and 'artists', 'pieces', etc. will include API data
