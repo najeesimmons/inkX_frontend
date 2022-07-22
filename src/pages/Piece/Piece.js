@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./piece.css";
 import Masonry from "react-masonry-css";
 
-const Piece = ({ pieces }) => {
-  const allPieces = pieces.map((piece) => {
+const Piece = ({ tattoos }) => {
+  console.log(tattoos)
+  const allPieces = tattoos.map((tattoo) => {
     return (
-      <div key={piece._id}>
-        <Link to={`/piece/${piece._id}`}>
-          <img src={piece.image} alt={piece.title} className="piece-pic" />
-        </Link>
+      <div key={tattoo.tattoo_id}>
+        {/* <Link to={`/piece/${tattoo._id}`}> */}
+          <img src={tattoo.imageUrl} alt={tattoo.tattoo_id} className="piece-pic" />
+        {/* </Link> */}
       </div>
     );
   });
