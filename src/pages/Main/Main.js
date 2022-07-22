@@ -1,7 +1,5 @@
-// import NewArtistForm from "../../components/NewArtistForm/NewArtistForm";
 import { Link } from "react-router-dom";
 import "./main.css";
-// import Slideshow from "../../components/Slideshow/Slideshow";
 const Main = ({ createArtist, pieces }) => {
   return (
     <>
@@ -26,9 +24,6 @@ const Main = ({ createArtist, pieces }) => {
           </button>
         </div>
       </div>
-      {/* <div className="main-slideshow-container">
-        <Slideshow pieces={pieces} />
-      </div> */}
     </>
   );
 };

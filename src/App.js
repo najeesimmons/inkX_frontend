@@ -43,7 +43,6 @@ function App() {
           allow_bookings: d?.allow_bookings,
           availability: d?.availability,
         },
-      
       };
     });
 
@@ -99,7 +98,7 @@ function App() {
   if (artistsIsLoading && tattoosLoading) {
     return <div>Loading...</div>;
   }
-
+  console.log("tattoos", tattoos)
   return (
     <>
       <Nav />
