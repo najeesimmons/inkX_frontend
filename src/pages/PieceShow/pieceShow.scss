@@ -40,17 +40,15 @@ h5 {
 
 .button-container {
   display: flex;
-}
-
-.button-container button {
-  height: 30px;
-  width: 100px;
-  border-radius: 5px;
-  margin-top: 50px;
-  font-weight: bold;
+  button {
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    margin-top: 50px;
+    font-weight: bold;
+  }
 }
 
 .piece-show-update {
   margin-right: 5px;
 }
-

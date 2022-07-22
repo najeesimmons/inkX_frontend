@@ -1,5 +1,5 @@
 .main-wrapper {
-height: 1vh;
+  height: 1vh;
 }
 .main-container {
   max-width: 950px;
@@ -35,17 +35,15 @@ h3 {
   background: white;
   max-width: 500px;
   padding: 40px;
-}
-
-.the-process h3 {
-  margin-top: 0;
-  text-align: center;
-  font-weight: bold;
-}
-
-.the-process p {
-  text-align: left;
-  font-weight: 425;
+  h3 {
+    margin-top: 0;
+    text-align: center;
+    font-weight: bold;
+  }
+  .the-process p {
+    text-align: left;
+    font-weight: 425;
+  }
 }
 
 .main-slideshow-container {
@@ -100,13 +98,8 @@ h3 {
   background-color: rgb(71, 71, 157);
   font-size: 17px;
   text-decoration: none;
-}
-
-  /* .explore-button :hover {
-    background-color: rgb(96, 96, 179);
-  } */
-
-.explore-button a {
-  text-decoration: none;
-  color: white;
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }
