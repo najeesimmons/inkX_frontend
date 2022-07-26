@@ -10,10 +10,19 @@
   border-radius: 5px;
 }
 
+.piece {
+  object-fit: cover;
+  width: 100%;
+}
+.piece-show-image-container {
+  flex: 1;
+}
+
 .piece-show-info {
   padding: 20px;
   text-align: left;
   background-color: white;
+  flex: 1;
 }
 .piece-show-artist-name {
   border-bottom: 1px rgb(190, 189, 189) solid;
@@ -22,6 +31,7 @@
 .piece-show-title {
   border-bottom: 1px rgb(190, 189, 189) solid;
   padding-bottom: 20px;
+  font-size: 10px;
 }
 .piece-description {
   border-bottom: 1px rgb(190, 189, 189) solid;
@@ -32,7 +42,7 @@ h5 {
   font-weight: 300;
 }
 .piece {
-  width: 475px;
+  max-width: 475px;
   height: 575px;
   border-radius: 5px 0 0 5px;
   display: block;

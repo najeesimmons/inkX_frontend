@@ -6,7 +6,7 @@ const Piece = ({ tattoos }) => {
   const allPieces = tattoos.map((tattoo) => {
     return (
       <div key={tattoo.tattoo_id}>
-        <Link to={`/piece/${tattoo.tattoo_id}`}>
+        <Link to={`/piece/${tattoo.tattoo_id}#`}>
           <img
             src={tattoo.imageUrl}
             alt={tattoo.tattoo_id}
@@ -39,10 +39,3 @@ const Piece = ({ tattoos }) => {
 };
 
 export default Piece;
-
-// <div className="piece-info-container">
-//   <h4>
-//     <b>Some Info</b>
-//     <p>Some More Info</p>
-//   </h4>
-// </div>
