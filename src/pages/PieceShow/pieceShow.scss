@@ -8,6 +8,10 @@
   display: flex;
   border: 1px rgb(182, 174, 174) solid;
   border-radius: 5px;
+
+  @media (max-width: 728px) {
+    flex-direction: column;
+  }
 }
 
 .piece {
