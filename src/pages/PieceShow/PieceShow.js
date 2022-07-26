@@ -66,7 +66,7 @@ const PieceShow = (props) => {
           <h4>Comments</h4>
           <h5>Comments temporarily disabled.</h5>
           <div className="button-container">
-            <button className="piece-show-update">Update</button>
+            <button className="piece-show-comment" disabled>Comment</button>
           </div>
         </div>
       </div>

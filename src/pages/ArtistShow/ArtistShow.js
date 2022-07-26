@@ -78,7 +78,7 @@ const Show = ({ URL }) => {
           {artistPieces[0].artist.city}
         </h4>
         <h2>{artistPieces[0].artist.name}</h2>
-        <button>Message</button>
+        <button disabled>Message</button>
         <h5>Messaging temporarily disabled.</h5>
       </div>
       <div className="artist-show-piece-container">

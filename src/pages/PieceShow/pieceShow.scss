@@ -27,6 +27,10 @@
   text-align: left;
   background-color: white;
   flex: 1;
+
+  h5 {
+    margin-bottom: 0px;
+  }
 }
 .piece-show-artist-name {
   border-bottom: 1px rgb(190, 189, 189) solid;
@@ -58,11 +62,12 @@ h5 {
     height: 30px;
     width: 100px;
     border-radius: 5px;
-    margin-top: 50px;
+    margin-top: 20px;
     font-weight: bold;
   }
 }
 
-.piece-show-update {
+.piece-show-comment {
   margin-right: 5px;
+  margin-top: 0px;
 }
