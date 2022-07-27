@@ -50,12 +50,16 @@
 
 .artist-info-container {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 35%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.6);
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0, 1));
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(0, 0, 0, 1)
+  );
   color: white;
   display: flex;
   flex-direction: column;
@@ -63,6 +67,10 @@
   justify-content: center;
   opacity: 0;
   transition: opacity 0.25s;
+  h4 {
+    position: absolute;
+    bottom: 0;
+  }
   &:hover {
     opacity: 1;
   }
@@ -73,15 +81,25 @@
     font-size: 15px;
   }
   @media (max-width: 786px) {
-    background: rgba(0, 0, 0, 0.5);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 1));
-    opacity: 1;
     height: 25%;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 1)
+  );
+    opacity: 1;
+    margin-top: calc(325px - 81.25px);
+
+    h4 {
+      margin-bottom: 0;
+    }
     b {
       font-size: 20px;
     }
     p {
-      font-size: 10px;
+      font-size: 12px;
     }
   }
 }
