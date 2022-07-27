@@ -67,7 +67,7 @@ const Artist = ({ URL }) => {
       <h2 className="artist-heading">Find Artists</h2>
 
       <InfiniteScroll
-        dataLength={artists.length} 
+        dataLength={artists.length}
         next={async () => await getArtists(pageCounter)}
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
@@ -80,24 +80,25 @@ const Artist = ({ URL }) => {
       >
         {artists.map((artist) => {
           return (
-            <div key={artist._id} className="artist-card">
-              <Link to={`/artist/${artist.username}#`}>
+            <Link key={`${artist._id} + cardlink`} to={`/artist/${artist.username}#`}>
+              <div
+                key={`${artist._id} + ${artist.username}`}
+                className="artist-card"
+              >
                 <img
                   src={artist.imageUrl}
                   alt={artist.username}
                   className="artist_pic"
                 />
-              </Link>
 
-              <div className="artist-info-container">
-                <h4>
-                  <b>{artist.name}</b>
-                  <p className="artist-location">
-                    {artist.location.city}, {artist.location.state}
-                  </p>
-                </h4>
+                <div className="artist-info-container">
+                  <h4>
+                    <b>{artist.name}</b>
+                    <p className="artist-location">{artist.location.city}</p>
+                  </h4>
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </InfiniteScroll>

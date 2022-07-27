@@ -12,19 +12,21 @@
 
 .artist-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin: 0 auto;
   margin-top: 20px;
+
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 5px;
   }
 }
 
 .artist_pic {
   width: 100%;
-  height: 70%;
+  height: 100%;
+  display: block;
   border-radius: 5px 5px 0 0;
   object-fit: cover;
 }
@@ -36,17 +38,50 @@
 .artist-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  border-radius: 5px; 
+  border-radius: 15px;
   background-color: white;
-  height: 350px;
+  overflow: hidden;
+  position: relative;
+  height: 325px;
   &:hover {
     box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.2);
   }
 }
 
 .artist-info-container {
-  padding: 2px 16px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  background: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0, 1));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s;
+  &:hover {
+    opacity: 1;
+  }
+  b {
+    font-size: 25px;
+  }
+  p {
+    font-size: 15px;
+  }
   @media (max-width: 786px) {
-    padding: 2px 5px;
+    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 1));
+    opacity: 1;
+    height: 25%;
+    b {
+      font-size: 20px;
+    }
+    p {
+      font-size: 10px;
+    }
   }
 }
