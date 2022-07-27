@@ -55,7 +55,6 @@ const Show = ({ URL }) => {
   useEffect(() => {
     getArtistPieces();
   }, [getArtistPieces]);
-  
 
   if (piecesIsLoading) {
     return <div>Loading...</div>;
@@ -69,14 +68,12 @@ const Show = ({ URL }) => {
     <div className="artist-profile-wrapper">
       <div className="artist-show-info-container">
         <div className="artist-pic-container">
-        <img
-          src={artistPieces[0].artist.artist_image}
-          alt={artistPieces[0].artist.id}
-        />
+          <img
+            src={artistPieces[0].artist.artist_image}
+            alt={artistPieces[0].artist.id}
+          />
         </div>
-        <h4>
-          {artistPieces[0].artist.city}
-        </h4>
+        <h4>{artistPieces[0].artist.city}</h4>
         <h2>{artistPieces[0].artist.name}</h2>
         <button disabled>Message</button>
         <h5>Messaging temporarily disabled.</h5>

@@ -5,8 +5,9 @@
   max-width: 950px;
   margin: 0 auto;
   margin-top: 150px;
-  margin-bottom: 15px;
+  // margin-bottom: 25px;
   display: flex;
+  padding: 30px;
   @media (max-width: 786px) {
     flex-direction: column;
     margin-top: 0;

@@ -60,7 +60,7 @@ function App() {
           <Route exact path="/" element={<Main />} />
           <Route path="/artist" element={<Artist URL={URL} />} />
           <Route path="/artist/:username" element={<ArtistShow URL={URL} />} />
-          <Route path="/piece" element={<Piece tattoos={tattoos} />} />
+          <Route path="/piece" element={<Piece URL={URL} />} />
           <Route path="/piece/:id" element={<PieceShow tattoos={tattoos} URL={URL}/>} />
         </Routes>
       </div>
