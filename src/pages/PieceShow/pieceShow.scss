@@ -7,7 +7,7 @@
   margin: 0 auto;
   display: flex;
   border: 1px rgb(182, 174, 174) solid;
-  border-radius: 5px;
+  border-radius: 15px;
 
   @media (max-width: 728px) {
     flex-direction: column;
@@ -17,13 +17,20 @@
 .piece {
   object-fit: cover;
   width: 100%;
+  border-radius: 15px;
 }
 .piece-show-image-container {
   flex: 1;
+  border-radius: 15px;
+
+  img {
+    border-radius: 15px;
+  }
 }
 
 .piece-show-info {
   padding: 20px;
+  border-radius: 15px;
   text-align: left;
   background-color: white;
   flex: 1;

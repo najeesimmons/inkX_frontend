@@ -6,7 +6,7 @@
 
 .artist-show-info-container {
   background: rgb(233, 231, 231);
-  border-radius: 5px;
+  border-radius: 15px;
   margin: 23px 20px 0 0;
   max-width: 370px;
   padding: 0 5px;
@@ -40,7 +40,7 @@
 .artist-show-profile-piece {
   max-width: 100%;
   max-height: 100%;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .artist-show-location {
@@ -51,7 +51,7 @@
 
 
 .artist-show-piece-container {
-  flex-shrink: 1.25;
+  flex-shrink: 10;
 }
 .artist-pic-container {
   height: 150px;
