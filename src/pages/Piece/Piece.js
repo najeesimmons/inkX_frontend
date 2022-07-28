@@ -1,4 +1,3 @@
-// import { useEffect } from "react";
 import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "./piece.scss";
@@ -71,7 +70,7 @@ const Piece = ({ URL }) => {
   };
 
   if (piecesIsLoading) {
-    return <div>Loading</div>;
+    return <div style={{ textAlign: "center" }}>Loading</div>;
   }
 
   return (

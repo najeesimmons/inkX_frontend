@@ -47,11 +47,11 @@ const PieceShow = (props) => {
   }, [getTattoo]);
 
   if (tattooIsLoading) {
-    return <h1>...Loading</h1>;
+    return <h1 style={{ textAlign: "center" }}>...Loading</h1>;
   }
 
   if (!tattoo) {
-    return <h1>Sorry, no piece was found.</h1>;
+    return <h1 style={{ textAlign: "center" }}>Sorry, no piece was found.</h1>;
   }
 
   return (
