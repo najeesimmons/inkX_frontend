@@ -36,7 +36,7 @@ const Piece = ({ URL }) => {
           `${URL}feeds/explore?&limit=24&page=${currentPage}`
         );
         const data = await response.json();
-        const isMore = data.length !== 24;
+        const isMore = currentPage !== data?.meta?.pagination?.total_pages;
         setPieces((prevPieces) => [...prevPieces, ...parsePieces(data.data)]);
         setPageCounter(currentPage + 1);
         setHasMore(isMore);

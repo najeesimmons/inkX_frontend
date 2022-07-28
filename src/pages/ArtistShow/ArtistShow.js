@@ -47,10 +47,16 @@ const Show = ({ URL }) => {
           `${URL}users/byusername/${username}/posts?page=${currentPage}&limit=24`
         );
         const data = await response.json();
-        const isMore = data.length !== 24;
+        const isMore = currentPage !== data?.meta?.pagination?.total_pages
         // when i use prevArtist Pieces error says it is not iterable
-        // setArtistPieces((prevPieces) => [...prevPieces, ...parseArtistPieces(data.data)]);
-        setArtistPieces(parseArtistPieces(data.data));
+        setArtistPieces((prevPieces) => {
+          if(Array.isArray(prevPieces)) {
+            return [...prevPieces, ...parseArtistPieces(data.data)]
+          }
+
+          return parseArtistPieces(data.data)
+        });
+        // setArtistPieces(parseArtistPieces(data.data));
         setPageCounter(currentPage + 1);
         setHasMore(isMore);
       } catch (error) {
