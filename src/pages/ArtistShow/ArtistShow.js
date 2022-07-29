@@ -48,7 +48,6 @@ const Show = ({ URL }) => {
         );
         const data = await response.json();
         const isMore = currentPage !== data?.meta?.pagination?.total_pages
-        // when i use prevArtist Pieces error says it is not iterable
         setArtistPieces((prevPieces) => {
           if(Array.isArray(prevPieces)) {
             return [...prevPieces, ...parseArtistPieces(data.data)]
