@@ -97,7 +97,8 @@ const Artist = ({ URL }) => {
                 <div className="artist-info-container">
                   <h4>
                     <b>{artist.name}</b>
-                    <p className="artist-location">{artist.location.city}</p>
+                    <p className="artist-location">LOCATION: {artist.location.city}</p>  
+                    <p>AVAILABLE: {artist.location.availability}</p>
                   </h4>
                 </div>
               </div>
