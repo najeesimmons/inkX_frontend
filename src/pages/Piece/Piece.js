@@ -66,7 +66,7 @@ const Piece = ({ URL }) => {
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,
-    500: 2,
+    728: 2,
   };
 
   if (piecesIsLoading) {

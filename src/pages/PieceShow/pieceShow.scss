@@ -1,20 +1,15 @@
 .piece-show-wrapper {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
   @media (max-width: 728px) {
-    position: relative;
-    transform: translate(0%, 0%);
-    top: 0;
-    left: 0;
     margin: 0 auto;
   }
 }
 
 .piece-show-container {
-  margin: 50px auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  // margin: 50px auto;
   display: flex;
   border: 1px rgb(182, 174, 174) solid;
   border-radius: 15px;
@@ -22,8 +17,13 @@
   max-height: 550px;
 
   @media (max-width: 728px) {
+    position: relative;
+    left: 0%;
+    top: 0%;
+    transform: translate(0%, 0%);
     flex-direction: column;
-    margin: 20px;
+    margin: 50px 20px;
+    max-width: 2000px;
   }
 }
 
