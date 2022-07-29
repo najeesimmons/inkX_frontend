@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "./artistShow.scss";
 import Masonry from "react-masonry-css";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const breakpointColumnsObj = {
   default: 3,
@@ -12,9 +13,10 @@ const breakpointColumnsObj = {
 };
 
 const Show = ({ URL }) => {
-  const [artistPieces, setArtistPieces] = useState([]);
-  const [piecesIsLoading, setPiecesIsLoading] = useState(false);
-
+  const [hasMore, setHasMore] = useState(true);
+  const [artistPieces, setArtistPieces] = useState(null);
+  const [artistPiecesIsLoading, setArtistPiecesIsLoading] = useState(false);
+  const [pageCounter, setPageCounter] = useState(1);
   const params = useParams();
   const username = params.username;
 
@@ -38,54 +40,79 @@ const Show = ({ URL }) => {
     });
   };
 
-  const getArtistPieces = useCallback(async () => {
-    try {
-      setPiecesIsLoading(true);
-      const response = await fetch(
-        `${URL}users/byusername/${username}/posts?page=1&limit=24`
-      );
-      const data = await response.json();
-      setPiecesIsLoading(false);
-      setArtistPieces(parseArtistPieces(data.data));
-    } catch (error) {
-      console.error(error);
-    }
-  }, [URL, username]);
+  const getArtistPieces = useCallback(
+    async (currentPage) => {
+      try {
+        const response = await fetch(
+          `${URL}users/byusername/${username}/posts?page=${currentPage}&limit=24`
+        );
+        const data = await response.json();
+        const isMore = currentPage !== data?.meta?.pagination?.total_pages;
+        setArtistPieces((prevPieces) => {
+          if (Array.isArray(prevPieces)) {
+            return [...prevPieces, ...parseArtistPieces(data.data)];
+          }
+
+          return parseArtistPieces(data.data);
+        });
+        setPageCounter(currentPage + 1);
+        setHasMore(isMore);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    [URL, username]
+  );
 
   useEffect(() => {
-    getArtistPieces();
+    setArtistPiecesIsLoading(true);
+    getArtistPieces(1);
+    setArtistPiecesIsLoading(false);
   }, [getArtistPieces]);
-  
 
-  if (piecesIsLoading) {
-    return <div>Loading...</div>;
+  if (artistPiecesIsLoading) {
+    return <div style={{ textAlign: "center" }}>Loading...</div>;
   }
 
   if (!Array.isArray(artistPieces) || artistPieces.length === 0) {
-    return <div>Sorry, {username} doesn't have any posts...</div>;
+    return (
+      <div style={{ textAlign: "center" }}>
+        Sorry, {username} doesn't have any posts...
+      </div>
+    );
   }
 
   return (
     <div className="artist-profile-wrapper">
       <div className="artist-show-info-container">
         <div className="artist-pic-container">
-        <img
-          src={artistPieces[0].artist.artist_image}
-          alt={artistPieces[0].artist.id}
-        />
+          <img
+            src={artistPieces[0].artist.artist_image}
+            alt={artistPieces[0].artist.id}
+          />
         </div>
-        <h4>
-          {artistPieces[0].artist.city}
-        </h4>
+        <h4>{artistPieces[0].artist.city}</h4>
         <h2>{artistPieces[0].artist.name}</h2>
         <button disabled>Message</button>
         <h5>Messaging temporarily disabled.</h5>
       </div>
-      <div className="artist-show-piece-container">
+      <InfiniteScroll
+        dataLength={artistPieces.length}
+        next={async () => await getArtistPieces(pageCounter)}
+        hasMore={hasMore}
+        loader={<h4>Loading...</h4>}
+        height={700}
+        endMessage={
+          <p style={{ textAlign: "center" }}>
+            <b>Yay! You have seen it all</b>
+          </p>
+        }
+        className="artist-show-piece-container"
+      >
         <Masonry
           breakpointCols={breakpointColumnsObj}
-          className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
+          className="artist-show-my-masonry-grid"
+          columnClassName="artist-show-my-masonry-grid_column"
         >
           {artistPieces.map((piece) => {
             return (
@@ -102,7 +129,7 @@ const Show = ({ URL }) => {
             );
           })}
         </Masonry>
-      </div>
+      </InfiniteScroll>
     </div>
   );
 };

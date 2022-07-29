@@ -6,21 +6,22 @@ const Nav = () => {
   return (
     <div className="navWrapper">
       <nav>
-        <img
-          src="https://i.imgur.com/TYlGYTk.png"
-          className="inkX-logo"
-          alt="inkX-logo"
-        />
+        <Link to="/">
+          <div className="nav-logo-container">
+            <img
+              src="https://i.imgur.com/5bhTfnA.png"
+              alt="inkx logo"
+              className="inkX-logo"
+            />
+          </div>
+        </Link>
         <ul>
-          <li>
-            <Link to="/">HOME</Link>
-          </li>
-          <li>
-            <Link to="/artist#">ARTISTS</Link>
-          </li>
-          <li>
-            <Link to="/piece#">PIECES</Link>
-          </li>
+          <Link to="/artist#">
+            <li>ARTISTS</li>
+          </Link>
+          <Link to="/piece#">
+            <li>PIECES</li>
+          </Link>
         </ul>
       </nav>
     </div>

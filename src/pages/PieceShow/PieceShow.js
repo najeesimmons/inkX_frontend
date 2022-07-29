@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import "./pieceShow.scss";
 
 const PieceShow = (props) => {
@@ -17,8 +18,8 @@ const PieceShow = (props) => {
       artist: {
         id: data?.artist?.id,
         name: data?.artist?.name,
-        username: data?.artist?.name,
-        artist_image: data?.artist?.imageUrl,
+        username: data?.artist?.username,
+        artist_image: data?.artist?.image_url,
         allow_bookings: data?.artist?.allow_bookings,
         availability: data?.artist?.availability,
       },
@@ -47,11 +48,11 @@ const PieceShow = (props) => {
   }, [getTattoo]);
 
   if (tattooIsLoading) {
-    return <h1>...Loading</h1>;
+    return <h1 style={{ textAlign: "center" }}>...Loading</h1>;
   }
 
   if (!tattoo) {
-    return <h1>Sorry, no piece was found.</h1>;
+    return <h1 style={{ textAlign: "center" }}>Sorry, no piece was found.</h1>;
   }
 
   return (
@@ -61,12 +62,33 @@ const PieceShow = (props) => {
           <img src={tattoo.imageUrl} className="piece" alt={tattoo.id} />
         </div>
         <div className="piece-show-info">
-          {<p className="piece-show-artist-name">by {tattoo.artist.name}</p>}
+          <div className="piece-show-links-and-info">
+            <Link
+              to={`/artist/${tattoo.artist.username}`}
+              className="link-to-artist-show"
+            >
+              <img
+                src={tattoo.artist.artist_image}
+                alt={tattoo.description}
+              ></img>
+            </Link>
+            <Link
+            to={`/artist/${tattoo.artist.username}`}
+            className="link-to-artist-show"
+          >
+            <p className="piece-show-artist-name">{tattoo.artist.name}</p>
+          </Link>
+          </div>
+
+       
+
           <p className="tattoo-description">{tattoo.description}</p>
           <h4>Comments</h4>
           <h5>Comments temporarily disabled.</h5>
           <div className="button-container">
-            <button className="piece-show-comment" disabled>Comment</button>
+            <button className="piece-show-comment" disabled>
+              Comment
+            </button>
           </div>
         </div>
       </div>

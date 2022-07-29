@@ -5,7 +5,10 @@ const Main = ({ createArtist, pieces }) => {
     <>
       <div className="main-container">
         <div className="tagline-box">
-          <h1 className="inkx">ink x</h1>
+          {/* <h1 className="inkx">ink x</h1> */}
+          {/* <div className="logo-box">
+          <img src=></img>
+          </div> */}
           <h1 className="tagline">Want to find the <em>best</em> artist for your next tattoo?</h1>
         </div>
         <div className="the-process">
@@ -15,7 +18,7 @@ const Main = ({ createArtist, pieces }) => {
             your area.
           </p>
           <p>
-            2. Learn about the artist to see if they're you're type of guy or gal.
+            2. Learn about the artist -- give em' the vibe check.
           </p>
           <p>3. If you like what you find -- connect!</p>
 

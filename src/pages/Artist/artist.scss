@@ -27,12 +27,8 @@
   width: 100%;
   height: 100%;
   display: block;
-  border-radius: 5px 5px 0 0;
+  border-radius: 15px 15px 0 0;
   object-fit: cover;
-}
-
-.artist-location {
-  font-size: 12px;
 }
 
 .artist-card {
@@ -78,17 +74,17 @@
     font-size: 25px;
   }
   p {
-    font-size: 15px;
+    font-size: 13px;
   }
   @media (max-width: 786px) {
     height: 25%;
     bottom: 0;
     background: rgba(0, 0, 0, 0.75);
     background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 1)
-  );
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 1)
+    );
     opacity: 1;
     margin-top: calc(325px - 81.25px);
 
@@ -99,7 +95,10 @@
       font-size: 20px;
     }
     p {
-      font-size: 12px;
+      font-size: 11px;
+    }
+    .artist-location {
+      margin-top: 8px;
     }
   }
 }

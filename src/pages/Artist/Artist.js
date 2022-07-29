@@ -59,7 +59,7 @@ const Artist = ({ URL }) => {
   }, [getArtists]);
 
   if (artistsIsLoading) {
-    return <div>Loading...</div>;
+    return <div style={{ textAlign: "center" }}>Loading...</div>;
   }
 
   return (
@@ -80,7 +80,10 @@ const Artist = ({ URL }) => {
       >
         {artists.map((artist) => {
           return (
-            <Link key={`${artist._id} + cardlink`} to={`/artist/${artist.username}#`}>
+            <Link
+              key={`${artist._id} + cardlink`}
+              to={`/artist/${artist.username}#`}
+            >
               <div
                 key={`${artist._id} + ${artist.username}`}
                 className="artist-card"
@@ -94,7 +97,8 @@ const Artist = ({ URL }) => {
                 <div className="artist-info-container">
                   <h4>
                     <b>{artist.name}</b>
-                    <p className="artist-location">{artist.location.city}</p>
+                    <p className="artist-location">LOCATION: {artist.location.city}</p>  
+                    <p>AVAILABLE: {artist.location.availability}</p>
                   </h4>
                 </div>
               </div>
