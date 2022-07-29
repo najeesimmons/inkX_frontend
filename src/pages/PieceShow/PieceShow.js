@@ -19,7 +19,7 @@ const PieceShow = (props) => {
         id: data?.artist?.id,
         name: data?.artist?.name,
         username: data?.artist?.username,
-        artist_image: data?.artist?.imageUrl,
+        artist_image: data?.artist?.image_url,
         allow_bookings: data?.artist?.allow_bookings,
         availability: data?.artist?.availability,
       },
@@ -62,9 +62,26 @@ const PieceShow = (props) => {
           <img src={tattoo.imageUrl} className="piece" alt={tattoo.id} />
         </div>
         <div className="piece-show-info">
-          <Link to={`/artist/${tattoo.artist.username}`}>
+          <div className="piece-show-links-and-info">
+            <Link
+              to={`/artist/${tattoo.artist.username}`}
+              className="link-to-artist-show"
+            >
+              <img
+                src={tattoo.artist.artist_image}
+                alt={tattoo.description}
+              ></img>
+            </Link>
+            <Link
+            to={`/artist/${tattoo.artist.username}`}
+            className="link-to-artist-show"
+          >
             <p className="piece-show-artist-name">{tattoo.artist.name}</p>
           </Link>
+          </div>
+
+       
+
           <p className="tattoo-description">{tattoo.description}</p>
           <h4>Comments</h4>
           <h5>Comments temporarily disabled.</h5>
