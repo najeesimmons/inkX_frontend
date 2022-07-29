@@ -47,15 +47,14 @@ const Show = ({ URL }) => {
           `${URL}users/byusername/${username}/posts?page=${currentPage}&limit=24`
         );
         const data = await response.json();
-        const isMore = currentPage !== data?.meta?.pagination?.total_pages
+        const isMore = currentPage !== data?.meta?.pagination?.total_pages;
         setArtistPieces((prevPieces) => {
-          if(Array.isArray(prevPieces)) {
-            return [...prevPieces, ...parseArtistPieces(data.data)]
+          if (Array.isArray(prevPieces)) {
+            return [...prevPieces, ...parseArtistPieces(data.data)];
           }
 
-          return parseArtistPieces(data.data)
+          return parseArtistPieces(data.data);
         });
-        // setArtistPieces(parseArtistPieces(data.data));
         setPageCounter(currentPage + 1);
         setHasMore(isMore);
       } catch (error) {
@@ -112,8 +111,8 @@ const Show = ({ URL }) => {
       >
         <Masonry
           breakpointCols={breakpointColumnsObj}
-          className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
+          className="artist-show-my-masonry-grid"
+          columnClassName="artist-show-my-masonry-grid_column"
         >
           {artistPieces.map((piece) => {
             return (
