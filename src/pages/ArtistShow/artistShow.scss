@@ -14,6 +14,11 @@
   margin: 0px 10px 0 0;
   max-width: 200px;
   height: 500px;
+  padding: 20px;
+
+  @media (max-width: 728px) {
+    padding: 10px;
+  }
 
   h4 {
     margin-top: 40px;
@@ -27,7 +32,7 @@
   img {
     width: 100%;
     height: 100%;
-    border-radius: 5px;
+    border-radius: 50%;
     margin-top: 25px;
     object-fit: cover;
   }
@@ -52,18 +57,17 @@
   padding-bottom: 5px;
 }
 
-// .artist-show-piece-container {
-// }
-
 .artist-pic-container {
-  height: 150px;
-  width: 150px;
+  height: 200px;
+  width: 200px;
   margin: 0 auto;
 
-  img {
-    border-radius: 50%;
+  @media (max-width: 728px) {
+    height: 100px;
+    width: 100px;
   }
 }
+
 .artist-piece-show-container {
   max-width: 800px;
 }
