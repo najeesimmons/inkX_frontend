@@ -62,25 +62,33 @@ const PieceShow = (props) => {
           <img src={tattoo.imageUrl} className="piece" alt={tattoo.id} />
         </div>
         <div className="piece-show-info">
-          <div className="piece-show-links-and-info">
-            <Link
-              to={`/artist/${tattoo.artist.username}`}
-              className="link-to-artist-show"
-            >
+          {tattoo.artist.username ? (
+            <div className="piece-show-links-and-info">
+              <Link
+                to={`/artist/${tattoo.artist.username}`}
+                className="link-to-artist-show"
+              >
+                <img
+                  src={tattoo.artist.artist_image}
+                  alt={tattoo.description}
+                ></img>
+              </Link>
+              <Link
+                to={`/artist/${tattoo.artist.username}`}
+                className="link-to-artist-show"
+              >
+                <p className="piece-show-artist-name">{tattoo.artist.name}</p>
+              </Link>
+            </div>
+          ) : (
+            <div className="piece-show-links-and-info">
               <img
-                src={tattoo.artist.artist_image}
-                alt={tattoo.description}
+                src={"https://i.imgur.com/GRRAOBY.png"}
+                alt={"unknown user"}
               ></img>
-            </Link>
-            <Link
-            to={`/artist/${tattoo.artist.username}`}
-            className="link-to-artist-show"
-          >
-            <p className="piece-show-artist-name">{tattoo.artist.name}</p>
-          </Link>
-          </div>
-
-       
+              <p className="piece-show-artist-name">Unknown User</p>
+            </div>
+          )}
 
           <p className="tattoo-description">{tattoo.description}</p>
           <h4>Comments</h4>
