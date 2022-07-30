@@ -101,7 +101,7 @@ const Show = ({ URL }) => {
         next={async () => await getArtistPieces(pageCounter)}
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
-        height={700}
+        height={600}
         endMessage={
           <p style={{ textAlign: "center" }}>
             <b>Yay! You have seen it all</b>

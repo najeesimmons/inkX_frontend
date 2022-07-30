@@ -9,12 +9,12 @@
   // left: 50%;
   // top: 50%;
   // transform: translate(-50%, -50%);
-  margin: 100px auto ;
+  margin: 60px auto;
   display: flex;
   border: 1px rgb(182, 174, 174) solid;
   border-radius: 15px;
   max-width: 875px;
-  max-height: 550px;
+  height: 500px;
 
   @media (max-width: 728px) {
     position: relative;
@@ -35,7 +35,8 @@
 .piece-show-image-container {
   flex: 1;
   border-radius: 15px 0 0 15px;
-  img {
+
+  .piece {
     border-radius: 15px 0 0 15px;
     height: 100%;
     @media (max-width: 728px) {
