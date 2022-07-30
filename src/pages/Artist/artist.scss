@@ -39,6 +39,11 @@
   overflow: hidden;
   position: relative;
   height: 325px;
+
+  @media (max-width: 728px) {
+    margin-bottom: 10px;
+  }
+
   &:hover {
     box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.2);
   }
