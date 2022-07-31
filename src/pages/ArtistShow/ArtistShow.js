@@ -12,11 +12,12 @@ const breakpointColumnsObj = {
   500: 1,
 };
 
-const Show = ({ URL }) => {
+const ArtistShow = ({ URL }) => {
   const [hasMore, setHasMore] = useState(true);
-  const [artistPieces, setArtistPieces] = useState(null);
+  const [artistPieces, setArtistPieces] = useState([]);
   const [artistPiecesIsLoading, setArtistPiecesIsLoading] = useState(false);
   const [pageCounter, setPageCounter] = useState(1);
+  const [error, setError] = useState(false);
   const params = useParams();
   const username = params.username;
 
@@ -52,13 +53,13 @@ const Show = ({ URL }) => {
           if (Array.isArray(prevPieces)) {
             return [...prevPieces, ...parseArtistPieces(data.data)];
           }
-
           return parseArtistPieces(data.data);
         });
         setPageCounter(currentPage + 1);
         setHasMore(isMore);
       } catch (error) {
         console.error(error);
+        setError(true);
       }
     },
     [URL, username]
@@ -70,37 +71,44 @@ const Show = ({ URL }) => {
     setArtistPiecesIsLoading(false);
   }, [getArtistPieces]);
 
-  if (artistPiecesIsLoading) {
-    return <div style={{ textAlign: "center" }}>Loading...</div>;
+  if (artistPiecesIsLoading && !artistPieces) {
+    <span className="loader"></span>;
+  }
+
+  if (error) {
+    <div>There was an error.</div>;
   }
 
   if (!Array.isArray(artistPieces) || artistPieces.length === 0) {
-    return (
-      <div style={{ textAlign: "center" }}>
-        Sorry, {username} doesn't have any posts...
-      </div>
-    );
+    <div style={{ textAlign: "center" }}>
+      Sorry, {username} doesn't have any posts...
+    </div>;
   }
 
   return (
     <div className="artist-profile-wrapper">
       <div className="artist-show-info-container">
+        {/* optional chaining lines 94 thru 100 is a compromise as page could not
+        render this informaiton bedore it was available to reference - it gave
+        "cannot read properties of "artist" error */}
         <div className="artist-pic-container">
           <img
-            src={artistPieces[0].artist.artist_image}
-            alt={artistPieces[0].artist.id}
+            src={artistPieces[0]?.artist?.artist_image}
+            alt={artistPieces[0]?.artist?.id}
           />
         </div>
-        <h4>{artistPieces[0].artist.city}</h4>
-        <h2>{artistPieces[0].artist.name}</h2>
+
+        <h4>{artistPieces[0]?.artist?.city}</h4>
+        <h2>{artistPieces[0]?.artist?.name}</h2>
         <button disabled>Message</button>
         <h5>Messaging temporarily disabled.</h5>
       </div>
+
       <InfiniteScroll
         dataLength={artistPieces.length}
         next={async () => await getArtistPieces(pageCounter)}
         hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
+        loader={<span className="loader"></span>}
         height={600}
         endMessage={
           <p style={{ textAlign: "center" }}>
@@ -134,4 +142,4 @@ const Show = ({ URL }) => {
   );
 };
 
-export default Show;
+export default ArtistShow;

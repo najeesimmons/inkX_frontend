@@ -48,7 +48,7 @@ const PieceShow = (props) => {
   }, [getTattoo]);
 
   if (tattooIsLoading) {
-    return <h1 style={{ textAlign: "center" }}>...Loading</h1>;
+    return <span className="loader"></span>;
   }
 
   if (!tattoo) {

@@ -80,7 +80,7 @@ const Piece = ({ URL }) => {
         dataLength={pieces.length}
         next={async () => await getPieces(pageCounter)}
         hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
+        loader={<span className="loader"></span>}
         endMessage={
           <p style={{ textAlign: "center" }}>
             <b>Yay! You have seen it all</b>

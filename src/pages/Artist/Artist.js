@@ -70,7 +70,7 @@ const Artist = ({ URL }) => {
         dataLength={artists.length}
         next={async () => await getArtists(pageCounter)}
         hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
+        loader={<span className="loader"></span>}
         endMessage={
           <p style={{ textAlign: "center" }}>
             <b>Yay! You have seen it all</b>
