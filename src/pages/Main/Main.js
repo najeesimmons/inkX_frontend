@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+// import { useEffect } from "react";
 import "./main.scss";
-
 const Main = () => {
+
+
   return (
     <div className="main-container">
       <div className="main-intro-div">
@@ -32,9 +34,9 @@ const Main = () => {
 };
 
 export default Main;
-// <>
-{
-  /* <div className="steps-wrapper">
+// will add additonal pages based on jsx below
+<>
+ <div className="steps-wrapper">
         <h1>How does it work?</h1>
         <div className="steps-container">
           <div className="column"> 1.
@@ -55,5 +57,5 @@ export default Main;
           </div>
         </div>
       </div>
-    </> */
-}
+    </> 
+
