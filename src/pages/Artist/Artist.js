@@ -60,23 +60,6 @@ const Artist = ({ URL }) => {
     [URL]
   );
 
-  // const getNextPageData = async (currentPage) => {
-  //   const { isMore, data, error, nextPage } = await getArtistPieces(
-  //     currentPage
-  //   );
-
-  //   if (error) {
-  //     console.error("An error occurred");
-  //     setError(true);
-  //     return;
-  //   }
-
-  //   setArtistPieces((prevPieces) => [...prevPieces, ...data]);
-  //   setPageCounter(nextPage);
-  //   setHasMore(isMore);
-  // };
-
-
   const getNextPageData = async (currentPage) => {
     const { isMore, data, error, nextPage } = await getArtists(currentPage);
 

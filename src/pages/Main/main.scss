@@ -6,7 +6,8 @@
   max-width: 1200px;
   margin-top: 125px;
   display: flex;
-  height: 100vh;
+  height: 100%;
+  // change to 100vh if I want to add more vertical pages to main
 
   @media (max-width: 728px) {
     flex-direction: column;

@@ -9,6 +9,7 @@ const Piece = ({ URL }) => {
   const [pieces, setPieces] = useState([]);
   const [piecesIsLoading, setPiecesIsLoading] = useState(false);
   const [pageCounter, setPageCounter] = useState(1);
+  const [error, setError] = useState(false);
 
   const parsePieces = (data) => {
     return data.map((d) => {
@@ -37,20 +38,57 @@ const Piece = ({ URL }) => {
         );
         const data = await response.json();
         const isMore = currentPage !== data?.meta?.pagination?.total_pages;
-        setPieces((prevPieces) => [...prevPieces, ...parsePieces(data.data)]);
-        setPageCounter(currentPage + 1);
-        setHasMore(isMore);
+        const parsedData = parsePieces(data.data);
+
+        return {
+          isMore,
+          data: parsedData,
+          error: false,
+          nextPage: currentPage + 1,
+        };
       } catch (error) {
-        console.error(error);
+        return {
+          isMore: false,
+          data: [],
+          error: true,
+          nextPage: currentPage + 1,
+        };
       }
     },
     [URL]
   );
 
+  const getNextPageData = async (currentPage) => {
+    const { isMore, data, error, nextPage } = await getPieces(currentPage);
+
+    if (error) {
+      console.error("An error occurred");
+      setError(true);
+      return;
+    }
+
+    setPieces((prevPieces) => [...prevPieces, ...data]);
+    setPageCounter(nextPage);
+    setHasMore(isMore);
+  };
+
   useEffect(() => {
-    setPiecesIsLoading(true);
-    getPieces(1);
-    setPiecesIsLoading(false);
+    async function fetchData() {
+      setPiecesIsLoading(true);
+      const { isMore, data, error, nextPage } = await getPieces(1);
+
+      if (error) {
+        console.error("An error occurred");
+        setError(true);
+        return;
+      }
+      setPieces(data);
+      setPageCounter(nextPage);
+      setHasMore(isMore);
+      setPiecesIsLoading(false);
+    }
+
+    fetchData();
   }, [getPieces]);
 
   const allPieces = pieces.map((piece) => {
@@ -69,8 +107,34 @@ const Piece = ({ URL }) => {
     728: 2,
   };
 
+  // if (artistsIsLoading) {
+  //   return <span className="loader" />;
+  // }
+
+  // if (!artistsIsLoading && error) {
+  //   return <div>There was an error.</div>;
+  // }
+
+  // if (!artistsIsLoading && artists.length === 0) {
+  //   return (
+  //     <div style={{ textAlign: "center" }}>Sorry, there are no artists.</div>
+  //   );
+  // }
+
   if (piecesIsLoading) {
-    return <div style={{ textAlign: "center" }}>Loading</div>;
+    return <span className="loader" />;
+  }
+
+  if (!piecesIsLoading && error) {
+    return <div>There was an error</div>;
+  }
+
+  if (!piecesIsLoading && pieces.length === 0) {
+    return (
+      <div style={{ textAlign: "center" }}>
+        Sorry, there are no pieces to display
+      </div>
+    );
   }
 
   return (
@@ -78,7 +142,7 @@ const Piece = ({ URL }) => {
       <h2 className="pieces-heading">Explore Tatoos</h2>
       <InfiniteScroll
         dataLength={pieces.length}
-        next={async () => await getPieces(pageCounter)}
+        next={async () => await getNextPageData(pageCounter)}
         hasMore={hasMore}
         loader={<span className="loader"></span>}
         endMessage={
