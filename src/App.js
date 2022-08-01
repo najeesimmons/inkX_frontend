@@ -7,7 +7,6 @@ import ArtistShow from "./pages/ArtistShow/ArtistShow";
 import Piece from "./pages/Piece/Piece";
 import PieceShow from "./pages/PieceShow/PieceShow";
 import Main from "./pages/Main/Main";
-// import { useState, useEffect } from "react";
 
 function App() {
   const URL = "https://backend-api.tattoodo.com/api/v2/";

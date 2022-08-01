@@ -1,17 +1,7 @@
 import { Link } from "react-router-dom";
-// import { useEffect } from "react";
 import "./main.scss";
-const Main = () => {
-  // useEffect(() => {
-  //   // 👇 add class to body element
-  //   document.body.classList.add("background-image");
-  //   // cleanup
-  //   return () => {
-  //     // 👇️ remove styles when component unmounts
-  //     document.body.classList.remove("background-image");
-  //   };
-  // }, []);
 
+const Main = () => {
   return (
     <div className="main-container">
       <div className="main-intro-div">

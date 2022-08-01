@@ -107,20 +107,6 @@ const Piece = ({ URL }) => {
     728: 2,
   };
 
-  // if (artistsIsLoading) {
-  //   return <span className="loader" />;
-  // }
-
-  // if (!artistsIsLoading && error) {
-  //   return <div>There was an error.</div>;
-  // }
-
-  // if (!artistsIsLoading && artists.length === 0) {
-  //   return (
-  //     <div style={{ textAlign: "center" }}>Sorry, there are no artists.</div>
-  //   );
-  // }
-
   if (piecesIsLoading) {
     return <span className="loader" />;
   }
