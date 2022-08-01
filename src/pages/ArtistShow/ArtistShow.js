@@ -47,69 +47,110 @@ const ArtistShow = ({ URL }) => {
         const response = await fetch(
           `${URL}users/byusername/${username}/posts?page=${currentPage}&limit=24`
         );
-        const data = await response.json();
-        const isMore = currentPage !== data?.meta?.pagination?.total_pages;
-        setArtistPieces((prevPieces) => {
-          if (Array.isArray(prevPieces)) {
-            return [...prevPieces, ...parseArtistPieces(data.data)];
-          }
-          return parseArtistPieces(data.data);
-        });
-        setPageCounter(currentPage + 1);
-        setHasMore(isMore);
+        const data = await response.json(); // object
+        const isMore = currentPage !== data?.meta?.pagination?.total_pages; // boolean
+        const parsedData = parseArtistPieces(data.data); // array with parsed properties
+
+        return {
+          // getArtistPieces returns an object with properties using vars defined in funciton
+          isMore,
+          data: parsedData,
+          error: false,
+          nextPage: currentPage + 1,
+        };
       } catch (error) {
-        console.error(error);
-        setError(true);
+        return {
+          isMore: false,
+          data: [],
+          error: true,
+          nextPage: currentPage + 1,
+        };
       }
     },
     [URL, username]
   );
 
+  const getNextPageData = async (currentPage) => {
+    const { isMore, data, error, nextPage } = await getArtistPieces(
+      currentPage
+    );
+
+    if (error) {
+      console.error("An error occurred");
+      setError(true);
+      return;
+    }
+
+    setArtistPieces((prevPieces) => [...prevPieces, ...data]);
+    setPageCounter(nextPage);
+    setHasMore(isMore);
+  };
+
   useEffect(() => {
-    setArtistPiecesIsLoading(true);
-    getArtistPieces(1);
-    setArtistPiecesIsLoading(false);
-  }, [getArtistPieces]);
+    async function fetchData() {
+      setArtistPiecesIsLoading(true); // set loading state to true
+      const { isMore, data, error, nextPage } = await getArtistPieces(1); // call getArtistPieces, then
+      // create variables by destructuring object which it returns, vars have same name as properties
 
-  if (artistPiecesIsLoading && !artistPieces) {
-    <span className="loader"></span>;
+      if (error) {
+        console.error("An error occurred");
+        setError(true);
+        return;
+      }
+
+      setArtistPieces(data); // set artistPieces state to the data var (derived from getArtistPieces obj)
+      setPageCounter(nextPage); // set nextPage state to the nextPage var (derived from getArtistPieces obj)
+      setHasMore(isMore); // set isMore state to the data var (derived from getArtistPieces obj)
+      setArtistPiecesIsLoading(false); // set loading state to false
+    }
+
+    fetchData(); // calling function in useEffect
+  }, [getArtistPieces]); // useEffect will be called again if getArtistPieces called
+
+  if (artistPiecesIsLoading) {
+    return <span className="loader" />;
   }
 
-  if (error) {
-    <div>There was an error.</div>;
+  if (!artistPiecesIsLoading && error) {
+    return <div>There was an error.</div>;
   }
 
-  if (!Array.isArray(artistPieces) || artistPieces.length === 0) {
-    <div style={{ textAlign: "center" }}>
-      Sorry, {username} doesn't have any posts...
-    </div>;
+  if (!artistPiecesIsLoading && artistPieces.length === 0) {
+    return (
+      <div style={{ textAlign: "center" }}>
+        Sorry, {username} doesn't have any posts...
+      </div>
+    );
   }
 
-  return (
-    <div className="artist-profile-wrapper">
+  const renderArtistInformation = () => {
+    if (!artistPieces[0]) return null;
+
+    return (
       <div className="artist-show-info-container">
-        {/* optional chaining lines 94 thru 100 is a compromise as page could not
-        render this informaiton bedore it was available to reference - it gave
-        "cannot read properties of "artist" error */}
         <div className="artist-pic-container">
           <img
             src={artistPieces[0]?.artist?.artist_image}
             alt={artistPieces[0]?.artist?.id}
           />
         </div>
-
         <h4>{artistPieces[0]?.artist?.city}</h4>
         <h2>{artistPieces[0]?.artist?.name}</h2>
         <button disabled>Message</button>
         <h5>Messaging temporarily disabled.</h5>
       </div>
+    );
+  };
 
+  return (
+    <div className="artist-profile-wrapper">
+      {renderArtistInformation()}
       <InfiniteScroll
         dataLength={artistPieces.length}
-        next={async () => await getArtistPieces(pageCounter)}
-        hasMore={hasMore}
+        next={async () => await getNextPageData(pageCounter)}
         loader={<span className="loader"></span>}
         height={600}
+        hasMore={hasMore}
         endMessage={
           <p style={{ textAlign: "center" }}>
             <b>Yay! You have seen it all</b>

@@ -7,6 +7,7 @@ const Artist = ({ URL }) => {
   const [hasMore, setHasMore] = useState(true);
   const [artists, setArtists] = useState([]);
   const [artistsIsLoading, setArtistsIsLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [pageCounter, setPageCounter] = useState(1);
 
   const parseArtists = (data) =>
@@ -38,28 +39,89 @@ const Artist = ({ URL }) => {
           `${URL}search/artists/bookable?&page=${currentPage}&limit=24`
         );
         const data = await response.json();
-        const isMore = data.length !== 24;
-        setArtists((prevArtists) => [
-          ...prevArtists,
-          ...parseArtists(data.data),
-        ]);
-        setPageCounter(currentPage + 1);
-        setHasMore(isMore);
+        const isMore = currentPage !== data?.meta?.pagination?.total_pages;
+        const parsedData = parseArtists(data.data);
+
+        return {
+          isMore,
+          data: parsedData,
+          error: false,
+          nextPage: currentPage + 1,
+        };
       } catch (error) {
-        console.error(error);
+        return {
+          isMore: false,
+          data: [],
+          error: true,
+          nextPage: currentPage + 1,
+        };
       }
     },
     [URL]
   );
 
+  // const getNextPageData = async (currentPage) => {
+  //   const { isMore, data, error, nextPage } = await getArtistPieces(
+  //     currentPage
+  //   );
+
+  //   if (error) {
+  //     console.error("An error occurred");
+  //     setError(true);
+  //     return;
+  //   }
+
+  //   setArtistPieces((prevPieces) => [...prevPieces, ...data]);
+  //   setPageCounter(nextPage);
+  //   setHasMore(isMore);
+  // };
+
+
+  const getNextPageData = async (currentPage) => {
+    const { isMore, data, error, nextPage } = await getArtists(currentPage);
+
+    if (error) {
+      console.error("An error occurred");
+      setError(true);
+      return;
+    }
+
+    setArtists((prevArtists) => [...prevArtists, ...data]);
+    setPageCounter(nextPage);
+    setHasMore(isMore);
+  };
+
   useEffect(() => {
-    setArtistsIsLoading(true);
-    getArtists(1);
-    setArtistsIsLoading(false);
+    async function fetchData() {
+      setArtistsIsLoading(true);
+      const { isMore, data, error, nextPage } = await getArtists(1);
+
+      if (error) {
+        console.error("An error occurred");
+        setError(true);
+        return;
+      }
+      setArtists(data);
+      setPageCounter(nextPage);
+      setHasMore(isMore);
+      setArtistsIsLoading(false);
+    }
+
+    fetchData();
   }, [getArtists]);
 
   if (artistsIsLoading) {
-    return <div style={{ textAlign: "center" }}>Loading...</div>;
+    return <span className="loader" />;
+  }
+
+  if (!artistsIsLoading && error) {
+    return <div>There was an error.</div>;
+  }
+
+  if (!artistsIsLoading && artists.length === 0) {
+    return (
+      <div style={{ textAlign: "center" }}>Sorry, there are no artists.</div>
+    );
   }
 
   return (
@@ -68,7 +130,7 @@ const Artist = ({ URL }) => {
 
       <InfiniteScroll
         dataLength={artists.length}
-        next={async () => await getArtists(pageCounter)}
+        next={async () => await getNextPageData(pageCounter)}
         hasMore={hasMore}
         loader={<span className="loader"></span>}
         endMessage={
@@ -97,7 +159,9 @@ const Artist = ({ URL }) => {
                 <div className="artist-info-container">
                   <h4>
                     <b>{artist.name}</b>
-                    <p className="artist-location">LOCATION: {artist.location.city}</p>  
+                    <p className="artist-location">
+                      LOCATION: {artist.location.city}
+                    </p>
                     <p>AVAILABLE: {artist.location.availability}</p>
                   </h4>
                 </div>

@@ -39,6 +39,27 @@ const Main = () => {
           />
         </div>
       </div>
+      <div className="steps-wrapper">
+        <h1>How does it work?</h1>
+        <div className="steps-container">
+          <div className="column"> 1.
+            <section className="step-1">
+              Browse our collections and you find work that speaks
+              to you. Soon, members will be able to save their favorites!
+            </section>
+          </div>
+          <div className="column"> 2.
+            <section className="step-2">
+              Read more about the artist and see more of their work.
+            </section>
+          </div>
+          <div className="column"> 3.
+            <section className="step-3">
+              If you like what you're seeing, connect with the artist.
+            </section>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
