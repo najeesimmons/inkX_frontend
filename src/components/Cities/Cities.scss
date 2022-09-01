@@ -1,0 +1,23 @@
+.city-button {
+    height: 45px;
+    width: 140px;
+    border-radius: 5px;
+    border: 1px solid;
+    margin: 10px 5px 15px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 17px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  
+    @media (max-width: 728px) {
+      margin-top: 0;
+      height: 50px;
+      width: 160px;
+    }
+  }
+  
+  .active-city {
+    color: green;
+  }
