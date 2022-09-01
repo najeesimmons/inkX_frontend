@@ -49,7 +49,6 @@ const Cities = ({ setCity }) => {
 
   const getIsActive = (label) => {
     const isActiveCity = activeCity === label;
-    console.log(isActiveCity)
 
     if (isActiveCity) {
       return "city-button active-city";
