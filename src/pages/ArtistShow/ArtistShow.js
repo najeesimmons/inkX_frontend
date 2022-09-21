@@ -12,7 +12,7 @@ const breakpointColumnsObj = {
   500: 1,
 };
 
-const ArtistShow = ({ URL }) => {
+const ArtistShow = ({ URL: baseUrl }) => {
   const [hasMore, setHasMore] = useState(true);
   const [artistPieces, setArtistPieces] = useState([]);
   const [artistPiecesIsLoading, setArtistPiecesIsLoading] = useState(false);
@@ -45,7 +45,7 @@ const ArtistShow = ({ URL }) => {
     async (currentPage) => {
       try {
         const response = await fetch(
-          `${URL}users/byusername/${username}/posts?page=${currentPage}&limit=24`
+          `${baseUrl}users/byusername/${username}/posts?page=${currentPage}&limit=24`
         );
         const data = await response.json(); // object
         const isMore = currentPage !== data?.meta?.pagination?.total_pages; // boolean
@@ -67,7 +67,7 @@ const ArtistShow = ({ URL }) => {
         };
       }
     },
-    [URL, username]
+    [baseUrl, username]
   );
 
   const getNextPageData = async (currentPage) => {

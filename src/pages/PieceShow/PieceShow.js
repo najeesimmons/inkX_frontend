@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import "./pieceShow.scss";
 
-const PieceShow = (props) => {
+const PieceShow = ({ URL: baseUrl }) => {
   const params = useParams();
   const tattoo_id = params.id;
 
@@ -34,14 +34,14 @@ const PieceShow = (props) => {
   const getTattoo = useCallback(async () => {
     try {
       setTattooIsLoading(true);
-      const response = await fetch(`${props.URL}posts/${tattoo_id}`);
+      const response = await fetch(`${baseUrl}posts/${tattoo_id}`);
       const data = await response.json();
       setTattoo(parseTattoo(data.data));
       setTattooIsLoading(false);
     } catch (error) {
       console.error(error);
     }
-  }, [props.URL, tattoo_id]);
+  }, [baseUrl, tattoo_id]);
 
   useEffect(() => {
     getTattoo();

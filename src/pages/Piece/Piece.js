@@ -4,7 +4,7 @@ import "./piece.scss";
 import Masonry from "react-masonry-css";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const Piece = ({ URL }) => {
+const Piece = ({ URL: baseUrl }) => {
   const [hasMore, setHasMore] = useState(true);
   const [pieces, setPieces] = useState([]);
   const [piecesIsLoading, setPiecesIsLoading] = useState(false);
@@ -34,7 +34,7 @@ const Piece = ({ URL }) => {
     async (currentPage) => {
       try {
         const response = await fetch(
-          `${URL}feeds/explore?&limit=24&page=${currentPage}`
+          `${baseUrl}feeds/explore?&limit=24&page=${currentPage}`
         );
         const data = await response.json();
         const isMore = currentPage !== data?.meta?.pagination?.total_pages;
@@ -55,7 +55,7 @@ const Piece = ({ URL }) => {
         };
       }
     },
-    [URL]
+    [baseUrl]
   );
 
   const getNextPageData = async (currentPage) => {
