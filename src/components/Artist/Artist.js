@@ -2,13 +2,11 @@ import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "./artist.scss";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Cities from '../../components/Cities/Cities'
 
-const Artist = ({ URL: baseUrl }) => {
+const Artist = ({ URL: baseUrl, city }) => {
   const [hasMore, setHasMore] = useState(true);
   const [artists, setArtists] = useState([]);
   const [artistsIsLoading, setArtistsIsLoading] = useState(false);
-  const [city, setCity] = useState({})
   const [error, setError] = useState(false);
   const [pageCounter, setPageCounter] = useState(1);
 
@@ -34,18 +32,20 @@ const Artist = ({ URL: baseUrl }) => {
       };
     });
 
-  
   const getArtists = useCallback(
     async (currentPage) => {
       try {
         const { lat, lon } = city;
 
-        const fetchURL = new URL(`${baseUrl}search/artists/bookable`)
-        const params = new URLSearchParams({page: currentPage, limit: 24, ...(lat && {lat}), ...(lon && {lon}) })
+        const fetchURL = new URL(`${baseUrl}search/artists/bookable`);
+        const params = new URLSearchParams({
+          page: currentPage,
+          limit: 24,
+          ...(lat && { lat }),
+          ...(lon && { lon }),
+        });
 
-        const response = await fetch(
-          `${fetchURL.href}?${params.toString()}`
-        );
+        const response = await fetch(`${fetchURL.href}?${params.toString()}`);
         const data = await response.json();
         const isMore = currentPage !== data?.meta?.pagination?.total_pages;
         const parsedData = parseArtists(data.data);
@@ -118,8 +118,6 @@ const Artist = ({ URL: baseUrl }) => {
   return (
     <div className="artist-wrapper">
       <h2 className="artist-heading">Find Artists</h2>
-      <Cities setCity={setCity} />
-      
       <InfiniteScroll
         dataLength={artists.length}
         next={async () => await getNextPageData(pageCounter)}

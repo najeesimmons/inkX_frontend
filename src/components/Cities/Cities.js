@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Cities.scss"
+import "./Cities.scss";
 
 const cities = [
   {
@@ -35,12 +35,14 @@ const cities = [
 ];
 
 const Cities = ({ setCity }) => {
-  const [activeCity, setActiveCity] = useState("");
+  const [activeCity, setActiveCity] = useState("All");
 
   const handleClick = (city) => {
     if (typeof city === "string") {
+      // "all"
       setActiveCity(city); //for css styles via getisActive()
-      setCity({}); //for query param
+      setCity({}); //for query param in Artist.js
+      return;
     } else {
       setActiveCity(city.label);
       setCity(city);
@@ -57,17 +59,19 @@ const Cities = ({ setCity }) => {
     return "city-button";
   };
 
+  const allClassName = getIsActive("All");
   return (
     <div className="citiesWrapper">
-      <button className={getIsActive("All")} onClick={() => handleClick("All")}>
+      <button className={allClassName} onClick={() => handleClick("All")}>
         All
       </button>
 
       {cities.map((city) => {
+        const className = getIsActive(city.label);
         return (
           <button
             key={city.id}
-            className={getIsActive(city.label)}
+            className={className}
             onClick={() => handleClick(city)}
           >
             {city.label}
