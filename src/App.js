@@ -7,7 +7,7 @@ import ArtistShow from "./pages/ArtistShow/ArtistShow";
 import Piece from "./pages/Piece/Piece";
 import PieceShow from "./pages/PieceShow/PieceShow";
 import Main from "./pages/Main/Main";
-import Login from "./pages/Login/Login"
+import Login from "./pages/Signup/Signup"
 
 function App() {
   const URL = "https://backend-api.tattoodo.com/api/v2/";
