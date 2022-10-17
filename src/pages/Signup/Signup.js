@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useSignup } from "../../hooks/useSignup";
 
 const Login = () => {
   const [formState, setFormState] = useState({
     email: "",
     password: "",
   });
+  const { signup, isLoading, error } = useSignup();
 
   const handleChange = (e) => {
     setFormState((prevFormState) => ({
@@ -16,16 +18,8 @@ const Login = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     console.log("logging in");
-    //send fetch request to server
-    const response = await fetch(`http://localhost:4000/user/signup/`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formState),
-    });
-
-    const data = await response.json();
+    const { email, password } = formState;
+    await signup(email, password);
 
     setFormState({
       email: "",
