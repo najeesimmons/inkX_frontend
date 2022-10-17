@@ -16,7 +16,11 @@ const Login = () => {
   const handlesubmit = (e) => {
     e.preventDefault();
     console.log("logging in");
-    //send fetch request
+    //send fetch request to server
+    setFormState({
+      email: "",
+      password: "",
+    });
   };
 
   return (
