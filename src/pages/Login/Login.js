@@ -13,10 +13,20 @@ const Login = () => {
     }));
   };
 
-  const handlesubmit = (e) => {
+  const handlesubmit = async (e) => {
     e.preventDefault();
     console.log("logging in");
     //send fetch request to server
+    const response = await fetch(`http://localhost:4000/user/signup/`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formState),
+    });
+
+    const data = await response.json();
+
     setFormState({
       email: "",
       password: "",
